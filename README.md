@@ -1,2 +1,2 @@
 # dotfiles
-my configuration settings
+configuration settings for various tools

@@ -46,6 +46,12 @@ set guioptions-=T
 "highlighted text copied into windows buffer
 set guioptions+=a
 
+"NERDTree stuff
+"Ctrl-n to toggle NERDTree
+map <C-n> :NERDTreeToggle<CR>
+"Where's File (wf) shows the file in NERDTree
+nnoremap <F9> :NERDTreeFind<CR>
+
 "tab stuff
 nnoremap <S-Left> :tabprevious<CR>
 nnoremap <S-Right> :tabnext<CR>
