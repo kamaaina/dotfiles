@@ -4,32 +4,18 @@
 ;; display the time
 (display-time)
  
-;;(set-default-font "-*-Lucida Sans Typewriter-normal-r-*-*-14-*-*-*-c-*-*-iso8859-1")
-;;(set-default-font "-*-Lucida Sans Typewriter-normal-r-*-*-14-120-96-96-c-*-iso8859-1")
-;;(set-default-font "-*-Lucida Console-normal-r-*-*-14-120-96-96-c-*-iso8859-1")
-;;(set-default-font "-apple-Andale_Mono-medium-normal-normal-*-*-*-*-*-m-0-iso10646-1")
-;;(set-default-font  "-apple-inconsolata-medium-r-normal--14-*-*-*-*-*-iso10646-1")
+;; set font
+(set-default-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
 
-;; this one
-;;(set-default-font "-outline-DejaVu Sans Mono-normal-normal-normal-mono-14-*-*-*-c-*-iso10646-1")
+;; set the width and height of the window
+(add-to-list 'default-frame-alist (cons 'width 115))
+(add-to-list 'default-frame-alist (cons 'height 55))
  
-;;(set-default-font "-outline-Anonymous Pro-normal-normal-normal-mono-16-*-*-*-c-*-iso10646-1")
- 
-;;current-font (cdr (assoc 'font (frame-parameters)))   C-j
- 
-;;(set-background-color "black")
-;;(set-foreground-color "#f3ec8b")
-;;(set-face-foreground 'modeline "yellow")
-;;(set-face-background 'modeline "black")
-;;(set-cursor-color "green")
-(add-to-list 'default-frame-alist (cons 'width 120))
-(add-to-list 'default-frame-alist (cons 'height 43))
- 
-;; remove toolbar
+;; don't show the toolbar
 (tool-bar-mode -1)
  
 ;; set position of window
-(set-frame-position (selected-frame) 10 30)
+;;(set-frame-position (selected-frame) 50 0)
  
 ;; disable the generation of backup files (filename~)
 (setq make-backup-files nil)
@@ -46,16 +32,13 @@
 (custom-set-faces)
  
 ;; turn off scroll bar
-;;(scroll-bar-mode nil)
+(scroll-bar-mode nil)
  
 ;; disable startup message
 (setq inhibit-startup-message t)
  
 ;; reload .emacs
 (global-set-key "\M-r" '(lambda () (interactive) (load-file "~/.emacs")))
- 
-;; add java comment
-(global-set-key "\M-c" 'create-java-method-comment)
  
 ;; Indent all
 (defun indent-all ()
@@ -79,29 +62,30 @@
    (save-buffer)
 )
  
-;; Turn off prompting.
+;; turn off prompting
 (setq tempo-interactive nil)
  
 ;; key bindings
 (global-set-key [f2] 'goto-line)
 (global-set-key [f3] 'replace-regexp)
-;;(global-set-key [f4] 'hexlify-buffer)
-(global-set-key [f4] 'eshell)
+(global-set-key [f4] 'hexlify-buffer)
+;;(global-set-key [f4] 'eshell)
 (global-set-key [f5] 'ff-find-other-file)
 (global-set-key [f6] 'ediff)
 ;;(global-set-key [f7] 'sgml-mode)
 (global-set-key [f7] 'ibuffer)
-;;(global-set-key [f8] 'cvs-examine)
-(global-set-key [f8] 'svn-status)
+(global-set-key [f8] 'ediff-revision)
 (global-set-key [f9] 'ediff-directories)
 (global-set-key [f10] 'indent-all)
 (global-set-key [f11] 'font-lock-fontify-buffer)
-(global-set-key [f12] 'undo)
+(global-set-key "\C-x\C-b" 'electric-buffer-list)
+(global-set-key (kbd "C-x g") 'goto-line)
+(global-set-key "\M-#" 'linum-mode)
  
 ;;----Ediff stuff----
 ;; Use M-x ediff-buffers or M-x ediff-files to compare two files
 ;; don't open up new window
-(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+;(setq ediff-window-setup-function 'ediff-setup-windows-plain)
  
 ;; show files side by side
 (setq ediff-split-window-function 'split-window-horizontally)
@@ -133,8 +117,8 @@
 (set-face-foreground 'font-lock-type-face "red")
  
 ;; line numbers
-(require 'linum)
-(global-linum-mode 1)
+;;(require 'linum)
+;;(global-linum-mode 1)
 
 ;; subversion support
 ;;(require 'psvn)
@@ -160,29 +144,22 @@
         (when (eq ?\n (elt kill (1- (length kill))))
           (beginning-of-line))))
  
-(require 'ido)
- 
-;;(require 'java-complete)
-
-(defun python-compile ()
-  "Use to compile and run python programs"
-  (interactive)
-  (compile (concat "python " (buffer-name) " ../ruby/alii/cust.dbf")))
-(setq compilation-scroll-output t)
-
-(local-set-key "\C-c\C-c" 'python-compile)
-
 (setq linum-format "  %d ")
 
+;; make mouse scrolling better
+;;(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil))) (setq mouse-wheel-progressive-speed nil)
+
+;;(load-file "~/examples/el-monokai-theme/monokai-theme.el")
+;;(load-theme 'monokai t)
 ;;(require 'color-theme)
+;;(load-file "~/tomorrow-night-theme.el")
 
-;; use ediff not diff
-(setq diff-command "ediff")
-
-;;(require 'color-theme)
-;(load-file "tomorrow-night-theme.el")
-
-(setq c-default-style "linux"
-      c-basic-offset 4)
 (setq c++-default-style "linux"
-      c++-basic-offset 4)
+      c++-basic-offset 3)
+(setq c-default-style "linux"
+      c-basic-offset 3)
+
+;;(require 'ido)
+;;(ido-mode 1)
+
+(show-paren-mode 1)
