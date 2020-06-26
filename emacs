@@ -5,7 +5,7 @@
 (display-time)
  
 ;; set font
-(set-default-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
+;;(set-default-font "-unknown-DejaVu Sans Mono-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1")
 
 ;; set the width and height of the window
 (add-to-list 'default-frame-alist (cons 'width 115))
@@ -163,3 +163,23 @@
 ;;(ido-mode 1)
 
 (show-paren-mode 1)
+(setq-default tab-width 4)
+
+;;(add-to-list 'load-path "/")
+;;(require 'go-mode)
+
+;; golint
+;;(add-to-list 'load-path (concat (getenv "GOPATH")  "/src/github.com/golang/lint/misc/emacs"))
+;;(require 'golint)
+
+(autoload 'go-mode "go-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
+
+(add-to-list 'load-path "/Users/mike/rust-mode/")
+(autoload 'rust-mode "rust-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+
+;; highlight line with the cursor, preserving the colors
+(require 'hl-line)
+(set-face-attribute 'hl-line nil :inherit nil :background "gray80")
+(global-hl-line-mode 1)
