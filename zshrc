@@ -15,5 +15,6 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
 
+# https://github.com/zsh-users/zsh-syntax-highlighting
 # Load zsh-syntax-highlighting; should be last.
 source /home/mike/Downloads/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
