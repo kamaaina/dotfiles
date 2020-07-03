@@ -39,7 +39,7 @@ if has("gui_running")
 else
   syntax on
   set cursorline
-  hi CursorLine term=bold cterm=bold guibg=Grey40
+  hi CursorLine guibg=Grey40
 endif
 
 " the color of the line numbers
