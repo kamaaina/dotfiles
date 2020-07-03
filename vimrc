@@ -1,6 +1,9 @@
 " use pathogen - see https://github.com/tpope/vim-pathogen for installation
 execute pathogen#infect()
 
+set background=dark
+colorscheme iceberg
+
 set nocompatible
 set autoindent
 set smartindent
@@ -35,10 +38,12 @@ if has("gui_running")
   "colorscheme torte
 else
   syntax on
+  set cursorline
+  hi CursorLine term=bold cterm=bold guibg=Grey40
 endif
 
 " the color of the line numbers
-highlight LineNr guifg=#569EC0
+"highlight LineNr guifg=#569EC0
 
 "don't show toolbar
 set guioptions-=T
