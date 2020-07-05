@@ -6,7 +6,8 @@ alias ll='ls -ltr'
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
-#HISTFILE=~/.cache/zsh/history
+setopt appendhistory
+HISTFILE=~/.zsh_history
 
 # Basic auto/tab complete:
 autoload -U compinit
