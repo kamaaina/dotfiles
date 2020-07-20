@@ -1,3 +1,4 @@
+PROMPT='%F{blue}%1~%f %# '
 autoload -U colors && colors
 
 alias ls='ls --color=auto'
