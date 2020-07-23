@@ -1,5 +1,5 @@
 " use pathogen - see https://github.com/tpope/vim-pathogen for installation
-execute pathogen#infect()
+"execute pathogen#infect()
 
 set background=dark
 colorscheme iceberg
