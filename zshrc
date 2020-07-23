@@ -1,8 +1,17 @@
-PROMPT='%F{blue}%1~%f %# '
+PROMPT='%F{green}%1~%f %# '
 autoload -U colors && colors
 
 alias ls='ls --color=auto'
 alias ll='ls -ltr'
+
+# key binding; namely caps lock -> esc
+xmodmap ~/.Xmodmap
+
+# turn on numlock
+/usr/bin/numlockx on
+
+# rust
+source $HOME/.cargo/env
 
 # History in cache directory:
 HISTSIZE=10000
