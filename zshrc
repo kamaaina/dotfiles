@@ -2,7 +2,7 @@ PROMPT='%F{green}%1~%f %# '
 autoload -U colors && colors
 
 alias ls='ls --color=auto'
-alias ll='ls -ltr'
+alias ll='ls -l'
 
 # key binding; namely caps lock -> esc
 xmodmap ~/.Xmodmap
