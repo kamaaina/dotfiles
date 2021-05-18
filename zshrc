@@ -12,6 +12,12 @@ xmodmap ~/.Xmodmap
 
 # rust
 source $HOME/.cargo/env
+export RUST_SRC_PATH=/home/mike/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library
+export OPENSSL_INCLUDE_DIR=/usr/include/openssl
+export OPENSSL_LIB_DIR=/usr/lib/x86_64-linux-gnu
+
+# go
+export PATH=$PATH:/usr/local/go/bin
 
 # History in cache directory:
 HISTSIZE=10000

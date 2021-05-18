@@ -1,5 +1,17 @@
-" use pathogen - see https://github.com/tpope/vim-pathogen for installation
-"execute pathogen#infect()
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dense-analysis/ale'
+Plug 'rust-lang/rust.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'machakann/vim-highlightedyank'
+Plug 'fannheyward/coc-rust-analyzer'
+Plug 'machakann/vim-highlightedyank'
+call plug#end()
+
+filetype plugin indent on
+
+let g:rustfmt_autosave = 1  " format rust code on save
 
 set background=dark
 colorscheme iceberg
