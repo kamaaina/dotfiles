@@ -8,5 +8,6 @@ xmodmap ~/.Xmodmap
 /usr/bin/numlockx on
 
 alias ll="exa -l -g --icons"
+alias ltr="exa -l -s modified"
 alias ls=exa
 alias vim=nvim
