@@ -82,7 +82,7 @@
 (global-set-key [f11] 'font-lock-fontify-buffer)
 (global-set-key "\C-x\C-b" 'electric-buffer-list)
 (global-set-key (kbd "C-x g") 'goto-line)
-(global-set-key "\M-#" 'linum-mode)
+(global-set-key "\M-n" 'linum-mode)
  
 ;;----Ediff stuff----
 ;; Use M-x ediff-buffers or M-x ediff-files to compare two files
@@ -177,7 +177,7 @@
 (autoload 'go-mode "go-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.go\\'" . go-mode))
 
-(add-to-list 'load-path "/Users/mike/rust-mode/")
+(add-to-list 'load-path "/home/mike/")
 (autoload 'rust-mode "rust-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 
