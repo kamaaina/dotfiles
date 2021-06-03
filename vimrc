@@ -31,6 +31,9 @@ set hlsearch   "highlight search
 set incsearch
 set showmatch  "matching brackets
 set mat=2      " tenth of second to blink cursor
+set showtabline=2 " always show tabs
+set formatoptions-=cro   "Stop newline continution of comments
+set autochdir
 
 "no sounds on error
 set noerrorbells
@@ -40,28 +43,25 @@ set tm=500
 
 set noswapfile
 set nowb
+set cursorline
+syntax on
+hi CursorLine guibg=Grey40
 
 if has("gui_running")
   set autochdir
+  " the color of the line numbers
+  "highlight LineNr guifg=#569EC0
+  "don't show toolbar
+  set guioptions-=T
 
-  set cursorline
+  "highlighted text copied into windows buffer
+  set guioptions+=a
+
   "the color of the highlighted line
   "highlight CursorLine guibg=#383838
   "colorscheme torte
-else
-  syntax on
-  set cursorline
-  hi CursorLine guibg=Grey40
 endif
 
-" the color of the line numbers
-"highlight LineNr guifg=#569EC0
-
-"don't show toolbar
-set guioptions-=T
-
-"highlighted text copied into windows buffer
-set guioptions+=a
 
 "NERDTree stuff
 "Ctrl-n to toggle NERDTree
