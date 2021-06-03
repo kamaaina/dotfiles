@@ -6,6 +6,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'fannheyward/coc-rust-analyzer'
+Plug 'unblevable/quick-scope'
 call plug#end()
 
 filetype plugin indent on
