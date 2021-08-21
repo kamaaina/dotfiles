@@ -7,10 +7,11 @@ xmodmap ~/.Xmodmap
 # # turn on numlock
 /usr/bin/numlockx on
 
-alias ll="exa -l -g --icons"
-alias ltr="exa -l -s modified --icons"
-alias ltra="exa -la -s modified --icons"
-alias ls=exa
+#alias ll="exa -l -g --icons"
+#alias ltr="exa -l -s modified --icons"
+#alias ltra="exa -la -s modified --icons"
+#alias ls=exa
+alias ls=lsd
 alias vim=nvim
 
 # rust
