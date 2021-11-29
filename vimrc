@@ -7,6 +7,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'fannheyward/coc-rust-analyzer'
 Plug 'unblevable/quick-scope'
+Plug 'cocopon/iceberg.vim'
 call plug#end()
 
 filetype plugin indent on
