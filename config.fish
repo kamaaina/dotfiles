@@ -13,6 +13,7 @@ xmodmap ~/.Xmodmap
 #alias ls=exa
 alias ls=lsd
 alias vim=nvim
+alias cal="ncal -b"
 
 # rust
 #source $HOME/.cargo/env
