@@ -13,6 +13,7 @@ xmodmap ~/.Xmodmap
 #alias ls=exa
 alias ls=lsd
 alias vim=nvim
+alias vi=vim
 alias cal="ncal -b"
 
 # rust
