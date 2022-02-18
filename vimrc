@@ -31,7 +31,8 @@ set smartindent
 set shiftwidth=3
 "set guifont=Lucida_Sans_Typewriter:h12
 set nobackup  "no ~ file
-set number    "line numbers
+"set number    "line numbers
+set relativenumber    "relativ line numbers
 set expandtab "no tabs, use spaces
 set tabstop=3
 set ignorecase "case insensitive search
