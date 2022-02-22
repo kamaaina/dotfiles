@@ -13,8 +13,10 @@ xmodmap ~/.Xmodmap
 #alias ls=exa
 alias ls=lsd
 alias vim=nvim
-alias vi=vim
+#alias vi=vim
 alias cal="ncal -b"
+alias tg="flatpak run org.telegram.desktop &> /dev/null &; disown"
+alias office="flatpak run org.onlyoffice.desktopeditors &> /dev/null &; disown"
 
 # rust
 #source $HOME/.cargo/env
