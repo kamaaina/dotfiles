@@ -22,8 +22,6 @@ alias office="flatpak run org.onlyoffice.desktopeditors &> /dev/null &; disown"
 #source $HOME/.cargo/env
 set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
 set -x RUST_SRC_PATH $HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library
-set -x OPENSSL_INCLUDE_DIR /usr/include/openssl
-set -x OPENSSL_LIB_DIR /usr/lib/x86_64-linux-gnu
 
 # path
 fish_add_path /usr/local/go/bin
