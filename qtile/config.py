@@ -42,7 +42,6 @@ mod1 = "alt"
 mod2 = "control"
 home = os.path.expanduser('~')
 
-
 @lazy.function
 def window_to_prev_group(qtile):
     if qtile.currentWindow is not None:
@@ -64,7 +63,6 @@ keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod], "q", lazy.window.kill()),
     Key([mod], "Return", lazy.spawn("alacritty -e fish"), desc="launch my terminal"),
-    Key([mod, "shift"], "m", lazy.spawn("dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'Inonsolata:regular:pixelsize=14'")),
 
 
 # SUPER + SHIFT KEYS
@@ -195,9 +193,9 @@ for i in groups:
         Key(["mod1", "shift"], "Tab", lazy.screen.prev_group()),
 
 # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND STAY ON WORKSPACE
-        #Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
+        Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
 # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND FOLLOW MOVED WINDOW TO WORKSPACE
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name) , lazy.group[i.name].toscreen()),
+        #Key([mod, "shift"], i.name, lazy.window.togroup(i.name) , lazy.group[i.name].toscreen()),
     ])
 
 
@@ -446,7 +444,7 @@ def init_widgets_list():
               widget.Clock(
                        foreground = colors[1],
                        background = colors[9],
-                       format = "%A, %B %d - %H:%M "
+                       format = "%A, %B %d %H:%M "
                        ),
               ]
     return widgets_list
