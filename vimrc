@@ -8,6 +8,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'fannheyward/coc-rust-analyzer'
 Plug 'unblevable/quick-scope'
 Plug 'cocopon/iceberg.vim'
+Plug 'ap/vim-css-color'
 call plug#end()
 
 filetype plugin indent on
