@@ -39,6 +39,7 @@ fi
 #start sxhkd to replace Qtile native key-bindings
 run sxhkd -c ~/.config/qtile/sxhkd/sxhkdrc &
 
+xset r rate 400 50
 
 #starting utility applications at boot time
 #run variety &

@@ -261,15 +261,15 @@ ctrl + alt + a
 #alt + Down
 #    variety --resume
 #
-##Xfce4-appfinder
-#alt + F2
-#    xfce4-appfinder --collapsed
-#
-##Xfce4-appfinder
-#alt + F3
-#    xfce4-appfinder
-#
-#
+#Xfce4-appfinder
+alt + F2
+    xfce4-appfinder --collapsed
+
+#Xfce4-appfinder
+alt + F3
+    xfce4-appfinder
+
+
 ##################################################################
 ##VARIETY KEYS WITH PYWAL
 ##################################################################
