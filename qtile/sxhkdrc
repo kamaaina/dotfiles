@@ -7,16 +7,16 @@
 #################################################################
 
 # Vivaldi
-super + F1
-	vivaldi-stable
+#super + F1
+#	vivaldi-stable
 
 # Atom
-super + F2
-	atom
+#super + F2
+#	atom
 
 #Inkscape
-super + F3
-    inkscape
+#super + F3
+#    inkscape
 
 #Gimp
 super + F4
@@ -35,22 +35,22 @@ super + F7
     virtualbox
 
 #Thunar
-super + F8
-    thunar
+#super + F8
+#    thunar
 
 #Evolution
-super + F9
-    evolution
+#super + F9
+#    evolution
 
 #Spotify
-super + F10
-    spotify
+#super + F10
+#    spotify
 
 #Rofi Fullscreen
-super + F11
-    rofi -theme-str 'window \{width: 100%;height: 100%;\}' -show drun
+#super + F11
+#    rofi -theme-str 'window \{width: 100%;height: 100%;\}' -show drun
 
-#Rofi
+Rofi
 super + F12
     rofi -show drun
 
@@ -59,12 +59,12 @@ super + F12
 #################################################################
 
 #Atom
-super + e
-    atom
+#super + e
+#    atom
 
 #Browser
-super + w
-    vivaldi-stable
+#super + w
+#    brave
 
 #Conky-toggle
 super + c
@@ -79,24 +79,24 @@ super + x
     arcolinux-logout
 
 #Rofi theme selector
-super + r
-    rofi-theme-selector
+#super + r
+#    rofi-theme-selector
 
 #Urxvt
-super + t
-    urxvt
+#super + t
+#    urxvt
 
 #Pavucontrol
-super + v
-    pavucontrol
+#super + v
+#    pavucontrol
 
 #Pragha
-super + m
-    pragha
+#super + m
+#    pragha
 
 #urxvt
-super + Return
-    urxvt
+#super + Return
+#    urxvt
 
 #Xkill
 super + Escape
@@ -104,8 +104,8 @@ super + Escape
 
 #Keyboard dependent
 #urxvt
-super + KP_Enter
-	urxvt
+#super + KP_Enter
+#	urxvt
 
 #################################################################
 # SUPER + SHIFT KEYS
@@ -155,16 +155,20 @@ ctrl + alt + Prior
     conky-rotate -p
 
 #File-Manager
-ctrl + alt + b
-     thunar
+#ctrl + alt + b
+#     thunar
 
 #Catfish
-ctrl + alt + c
-     catfish
+#ctrl + alt + c
+#     catfish
+
+#Brave
+ctrl + alt + b
+     brave
 
 #Chromium
 ctrl + alt + g
-    chromium -no-default-browser-check
+    google-chrome-stable -no-default-browser-check
 
 #Firefox
 ctrl + alt + f
@@ -191,32 +195,32 @@ ctrl + alt + m
      xfce4-settings-manager
 
 #Pulse Audio Control
-ctrl + alt + u
-     pavucontrol
+#ctrl + alt + u
+#     pavucontrol
 
 #Rofi theme selector
-ctrl + alt + r
-  rofi-theme-selector
+#ctrl + alt + r
+#  rofi-theme-selector
 
 #Spotify
-ctrl + alt + s
-   spotify
+#ctrl + alt + s
+#   spotify
 
 #urxvt
-ctrl + alt + Return
-    urxvt
+#ctrl + alt + Return
+#    urxvt
 
 #urxvt
-ctrl + alt + t
-    urxvt
+#ctrl + alt + t
+#    urxvt
 
 #Vivaldi
-ctrl + alt + v
-    vivaldi-stable
+#ctrl + alt + v
+#    vivaldi-stable
 
 #Xfce4-appfinder
-ctrl + alt + a
-    xfce4-appfinder
+#ctrl + alt + a
+#    xfce4-appfinder
 
 
 #Keyboard dependent
