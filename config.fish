@@ -9,7 +9,7 @@ xmodmap ~/.Xmodmap
 
 alias ls=lsd
 alias vim=nvim
-alias cal="ncal -b"
+#alias cal="ncal -b"
 alias tg="flatpak run org.telegram.desktop &> /dev/null &; disown"
 alias office="flatpak run org.onlyoffice.desktopeditors &> /dev/null &; disown"
 
