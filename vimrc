@@ -92,3 +92,7 @@ nnoremap to :tabonl<Space>
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+if &diff
+    highlight! link DiffText MatchParen
+endif
