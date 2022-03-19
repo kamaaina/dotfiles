@@ -23,16 +23,14 @@ if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
 endif
 
 "set termguicolors
-"set background=dark
+set background=dark
 colorscheme iceberg
 
 set nocompatible
 set autoindent
 set smartindent
 set shiftwidth=3
-"set guifont=Lucida_Sans_Typewriter:h12
 set nobackup  "no ~ file
-"set number    "line numbers
 set relativenumber    "relative line numbers
 set number            " this will give the current line the 'real' number
 set expandtab "no tabs, use spaces
@@ -44,7 +42,8 @@ set incsearch
 set showmatch  "matching brackets
 set mat=2      " tenth of second to blink cursor
 set showtabline=2 " always show tabs
-set formatoptions-=cro   "Stop newline continution of comments
+"set formatoptions-=cro   "Stop newline continution of comments
+autocmd FileType * set formatoptions-=cro   "the line above is not honored for some reason...
 set autochdir
 
 "no sounds on error
@@ -57,7 +56,9 @@ set noswapfile
 set nowb
 set cursorline
 syntax on
-hi CursorLine guibg=Grey40
+
+"set guifont=Lucida_Sans_Typewriter:h12
+"hi CursorLine guibg=Grey40
 
 if has("gui_running")
   set autochdir
