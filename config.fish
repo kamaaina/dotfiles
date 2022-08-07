@@ -12,6 +12,7 @@ alias vim=nvim
 #alias cal="ncal -b"
 alias tg="flatpak run org.telegram.desktop &> /dev/null &; disown"
 alias office="flatpak run org.onlyoffice.desktopeditors &> /dev/null &; disown"
+alias vscode="flatpak run com.visualstudio.code &> /dev/null &; disown"
 
 # rust
 set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
