@@ -9,6 +9,8 @@ Plug 'fannheyward/coc-rust-analyzer'
 Plug 'unblevable/quick-scope'
 Plug 'cocopon/iceberg.vim'
 Plug 'ap/vim-css-color'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 call plug#end()
 
 filetype plugin indent on
@@ -76,11 +78,11 @@ if has("gui_running")
 endif
 
 
-"NERDTree stuff
-"Ctrl-n to toggle NERDTree
-map <C-n> :NERDTreeToggle<CR>
-"Where's File (wf) shows the file in NERDTree
-nnoremap <F9> :NERDTreeFind<CR>
+""NERDTree stuff
+""Ctrl-n to toggle NERDTree
+"map <C-n> :NERDTreeToggle<CR>
+""Where's File (wf) shows the file in NERDTree
+"nnoremap <F9> :NERDTreeFind<CR>
 
 "tab stuff
 nnoremap <S-Left> :tabprevious<CR>
