@@ -21,3 +21,4 @@ set -x RUST_SRC_PATH $HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/li
 # path
 fish_add_path /usr/local/go/bin
 
+set -x EDITOR vim
