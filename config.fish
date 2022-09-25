@@ -13,12 +13,17 @@ alias vim=nvim
 alias tg="flatpak run org.telegram.desktop &> /dev/null &; disown"
 alias office="flatpak run org.onlyoffice.desktopeditors &> /dev/null &; disown"
 alias vscode="flatpak run com.visualstudio.code &> /dev/null &; disown"
+alias emacs="emacsclient -c -a 'emacs'"
 
 # rust
 set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
 set -x RUST_SRC_PATH $HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library
 
+# emacs
+set -x TMP /tmp
+
 # path
 fish_add_path /usr/local/go/bin
+fish_add_path $HOME/.emacs.d/bin
 
 set -x EDITOR vim
