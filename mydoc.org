@@ -1,0 +1,50 @@
+#+title: My Documentation
+
+* Docker
+** Save and Load Image
+
+#+BEGIN_DOCKERSAVELOAD
+docker save image:latest | gzip > myimage_latest.tar.gz
+docker load < myimage_latest.tar.gz
+#+END_DOCKERSAVELOAD
+* MongoDB
+
+** Using version 5.0
+Setup a mongodb docker container
+
+#+BEGIN_MONGO
+docker pull mongodb:5.0
+mkdir ~/mongodb
+cp init-mongo.js ~/mongodb
+#+END_MONGO
+
+** Export From Docker
+Export a database from a docker container to a flat file that can then be used
+to import in another docker container (basically transferring a database from
+on server to another)
+
+#+BEGIN_EXPORT
+docker exec <mongodb container> sh -c 'mongodump --authenticationDatabase admin -u <user> -p <password> --db <database> --archive' > db.dump
+#+END_EXPORT
+
+** Import to Docker
+Import a database that was exported from another docker container
+
+#+BEGIN_IMPORT
+docker exec -i <mongodb container> sh -c 'mongorestore --authenticationDatabase admin -u <user> -p <password> --db <database> --archive' < db.dump
+#+END_IMPORT
+
+** Mongo Shell
+To get to the mongo shell in a docker container. Assumption is the docker container is up and running
+
+#+BEGIN_MONGOSHELL
+docker exec -it mongodb /bin/sh
+mongo -u <user> <database>
+#+END_MONGOSHELL
+
+** URI
+The URI needed to connect to the mongo database. The example below is for fish shell
+
+#+BEGIN_SRC sh
+set -x MONGODB_URI mongodb://<user>:<pass>@<host>:27017/<db_name>
+#+END_SRC
