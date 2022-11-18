@@ -11,6 +11,7 @@ Plug 'cocopon/iceberg.vim'
 Plug 'ap/vim-css-color'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'ron-rs/ron.vim'
 call plug#end()
 
 filetype plugin indent on
