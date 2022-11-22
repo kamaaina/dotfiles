@@ -4,7 +4,7 @@ border_width: 2,
 margin: [5, 5],
 //default_border_color: "#bd93f9",
 default_border_color: "#5e81ac",
-floating_border_color: "#bd93f9",
+floating_border_color: "#ff79c6",
 //focused_border_color: "#ff79c6",
 focused_border_color: "#44bb60",
 )

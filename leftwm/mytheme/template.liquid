@@ -1,7 +1,7 @@
 {% for tag in workspace.tags %}
 {% if tag.mine %}
 %{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}
-%{F#111111}%{B#A3BE8C} {{tag.name}} {{workspace.layout}} %{F-}%{B-}
+%{F#111111}%{B#A3BE8C} {{tag.name}} %{F-}%{B-}
 %{A}
 {% elsif tag.urgent %}
 %{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}
