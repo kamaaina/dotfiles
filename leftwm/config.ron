@@ -17,7 +17,6 @@
     max_window_width: None,
     layouts: [
         MainAndVertStack,
-        /*
         MainAndHorizontalStack,
         MainAndDeck,
         GridHorizontal,
@@ -31,11 +30,17 @@
         Monocle,
         RightWiderLeftStack,
         LeftWiderRightStack,
-        */
     ],
-    layout_mode: Workspace,
+    layout_mode: Tag,
     insert_behavior: Bottom,
-    scratchpad: [],
+    scratchpad: [
+        ( name: "Alacritty", // This is the name which is referenced when calling (case-sensitive)
+          value: "alacritty -e fish", // The command to load the application if it isn't started (first application to start)
+          // x, y, width, height are in pixels when an integer is inputted or a percentage when a float is inputted.
+          // These values are relative to the size of the workspace, and will be restricted depending on the workspace size.
+          x: 500, y: 300, height: 600, width: 1000
+        ),
+    ],
     window_rules: [],
     disable_current_tag_swap: false,
     disable_tile_drag: false,
@@ -92,6 +97,7 @@
         (command: ToggleFloating, value: "", modifier: ["modkey", "Control"], key: "f"),
         (command: IncreaseMainWidth, value: "5", modifier: ["modkey", "Control"], key: "i"),
         (command: DecreaseMainWidth, value: "5", modifier: ["modkey", "Control"], key: "d"),
+        (command: ToggleScratchPad, value: "Alacritty", modifier: ["modkey"], key: "p")
     ],
     workspaces: [],
 )
