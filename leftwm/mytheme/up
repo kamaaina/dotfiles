@@ -21,7 +21,7 @@ blueberry-tray &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 volumeicon &
 #conky -c ~/.config/leftwm/system-overview &
-#nitrogen --restore &
+nitrogen --restore &
 #caffeine &
 #vivaldi-stable &
 #firefox &
@@ -48,10 +48,10 @@ fi
 # Set the theme.ron config
 leftwm command "LoadTheme $SCRIPTPATH/theme.ron"
 
-# Set background
-if [ -x "$(command -v feh)" ]; then
-  feh --bg-fill "$SCRIPTPATH"/background.jpg
-fi
+## Set background
+#if [ -x "$(command -v feh)" ]; then
+#  feh --bg-fill "$SCRIPTPATH"/background.jpg
+#fi
 
 #mainbar
 index=0
