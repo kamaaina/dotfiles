@@ -27,3 +27,8 @@ fish_add_path /usr/local/go/bin
 fish_add_path $HOME/.emacs.d/bin
 
 set -x EDITOR vim
+
+# starship prompt
+# install starship with:
+# curl -sS https://starship.rs/install.sh | sh
+#starship init fish | source
