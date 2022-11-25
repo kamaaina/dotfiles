@@ -6,18 +6,6 @@
 # SUPER + FUNCTION KEYS
 #################################################################
 
-# Vivaldi
-#super + F1
-#	vivaldi-stable
-
-# Atom
-#super + F2
-#	atom
-
-#Inkscape
-#super + F3
-#    inkscape
-
 #Gimp
 super + F4
     gimp
@@ -172,8 +160,8 @@ ctrl + shift + Print
 #################################################################
 
 #xfce4-terminal dropdown
-F12
-    xfce4-terminal --drop-down
+#F12
+#    xfce4-terminal --drop-down
 
 
 #################################################################
