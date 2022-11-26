@@ -1,5 +1,6 @@
 #!/bin/bash
 export SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+echo "SCRIPTPATH: $SCRIPTPATH"
 
 # Down the last running theme
 if [ -f "/tmp/leftwm-theme-down" ]; then
@@ -14,11 +15,11 @@ sxhkd -c ~/.config/leftwm/sxhkd/sxhkdrc &
 # diversity of apps to start
 nm-applet &
 pamac-tray &
-xfce4-power-manager &
+#xfce4-power-manager &
 numlockx on &
 blueberry-tray &
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-/usr/lib/xfce4/notifyd/xfce4-notifyd &
+#/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+#/usr/lib/xfce4/notifyd/xfce4-notifyd &
 volumeicon &
 #conky -c ~/.config/leftwm/system-overview &
 nitrogen --restore &
@@ -59,6 +60,6 @@ monitors=($(polybar -m | sed s/:.*//))
 leftwm-state -q -n -t "$SCRIPTPATH"/sizes.liquid | sed -r '/^\s*$/d' | while read -r width x y
 do
   barname="mainbar$index"
-  monitor=${monitors[index]} width=$(( width - 16 )) polybar -c "$SCRIPTPATH"/polybar.cfg $barname &> /dev/null &
+  monitor=${monitors[index]} width=$(( width - 10 )) polybar -c "$SCRIPTPATH"/polybar.cfg $barname &> /dev/null &
   let index=index+1
 done
