@@ -33,8 +33,9 @@ nitrogen --restore &
 #spotify &
 #atom &
 
-#xset r rate 400 50
-$HOME/.config/leftwm/mine.sh
+#$HOME/.config/leftwm/mine.sh
+xset r rate 400 50
+xmodmap -e "pointer = 3 2 1"
 
 # Boot picom or compton if it exists
 if [ -x "$(command -v picom)" ]; then
