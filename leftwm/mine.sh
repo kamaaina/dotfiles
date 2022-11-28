@@ -5,5 +5,8 @@
 # in .config/leftwm/themes/candy/up, add the following line
 # $HOME/.config/leftwm/mine.sh
 
+# keyboard repeat rate
 xset r rate 400 50
 
+# change mouse to left handed mouse
+#xmodmap -e "pointer = 3 2 1"
