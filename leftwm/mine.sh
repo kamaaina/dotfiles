@@ -10,3 +10,6 @@ xset r rate 400 50
 
 # change mouse to left handed mouse
 #xmodmap -e "pointer = 3 2 1"
+
+# start emacs daemon
+/usr/bin/emacs --daemon &
