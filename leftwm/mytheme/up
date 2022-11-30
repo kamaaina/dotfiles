@@ -22,7 +22,6 @@ blueberry-tray &
 #/usr/lib/xfce4/notifyd/xfce4-notifyd &
 volumeicon &
 #conky -c ~/.config/leftwm/system-overview &
-nitrogen --restore &
 #caffeine &
 #vivaldi-stable &
 #firefox &
@@ -33,7 +32,6 @@ nitrogen --restore &
 #spotify &
 #atom &
 
-$HOME/.config/leftwm/mine.sh
 
 # Boot picom or compton if it exists
 if [ -x "$(command -v picom)" ]; then
@@ -52,6 +50,9 @@ leftwm command "LoadTheme $SCRIPTPATH/theme.ron"
 #if [ -x "$(command -v feh)" ]; then
 #  feh --bg-fill "$SCRIPTPATH"/background.jpg
 #fi
+nitrogen --restore &
+
+$HOME/.config/leftwm/mine.sh
 
 #mainbar
 index=0
