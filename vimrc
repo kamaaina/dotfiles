@@ -91,6 +91,9 @@ nnoremap <S-Right> :tabnext<CR>
 nnoremap tc :tabclose<CR>
 nnoremap tn :tabnew<Space>
 nnoremap to :tabonl<Space>
+"telescope key bindings
+nnoremap ff :Telescope find_files<CR>
+nnoremap lg :Telescope live_grep<CR>
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
