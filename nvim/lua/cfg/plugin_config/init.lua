@@ -1,0 +1,6 @@
+--require("cfg.plugin_config.gruvbox")
+require("cfg.plugin_config.iceberg")
+require("cfg.plugin_config.lualine")
+require("cfg.plugin_config.nvim-tree")
+require("cfg.plugin_config.telescope")
+--require("cfg.plugin_config.treesitter")
