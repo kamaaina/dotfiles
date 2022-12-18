@@ -33,6 +33,15 @@ return require('packer').startup(function(use)
   use 'rust-lang/rust.vim'
   use 'nvim-treesitter/nvim-treesitter'
   --use 'chriskempson/base16-vim'
+  use({
+    'rose-pine/neovim',
+    as = 'rose-pine',
+    config = function()
+        vim.cmd('colorscheme rose-pine')
+    end
+  })
+  use { "catppuccin/nvim", as = "catppuccin" }
+  use "EdenEast/nightfox.nvim"
 
 
   -- Automatically set up your configuration after cloning packer.nvim
