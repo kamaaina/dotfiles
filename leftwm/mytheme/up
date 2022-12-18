@@ -60,6 +60,7 @@ monitors=($(polybar -m | sed s/:.*//))
 leftwm-state -q -n -t "$SCRIPTPATH"/sizes.liquid | sed -r '/^\s*$/d' | while read -r width x y
 do
   barname="mainbar$index"
-  monitor=${monitors[index]} width=$(( width - 10 )) polybar -c "$SCRIPTPATH"/polybar.cfg $barname &> /dev/null &
+  echo "w: $width"
+  monitor=${monitors[index]} width=$(( width - 10 )) polybar -r -c "$SCRIPTPATH"/polybar.cfg $barname &> /dev/null &
   let index=index+1
 done
