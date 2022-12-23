@@ -97,12 +97,13 @@ o.syntax = true
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
-    vim.highlight.on_yank()
+    vim.highlight.on_yank({ timeout=600 })
   end,
   group = highlight_group,
   pattern = '*',
 })
 
+-- set the location of the cursor to last known position of file when it was closed
 vim.cmd [[
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
