@@ -27,6 +27,13 @@ map('n', 'N', 'Nzzzv')
 map('n', '<leader>y', '\"+y')
 map('v', '<leader>y', '\"+y')
 
+-- navigation for warnings
+map('n', '[d', vim.diagnostic.goto_prev)
+map('n', ']d', vim.diagnostic.goto_next)
+--map('n', '<leader>e', vim.diagnostic.open_float)
+map('n', '<leader>q', vim.diagnostic.setloclist)
+
+
 -- format buffer
 map('n', '<leader>f', function()
     vim.lsp.buf.format()

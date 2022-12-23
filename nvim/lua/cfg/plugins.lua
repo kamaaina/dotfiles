@@ -13,8 +13,8 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-  -- My plugins here
-  use 'ellisonleao/gruvbox.nvim'
+
+  -- my plugins here
   use 'nvim-tree/nvim-tree.lua'
   use 'nvim-tree/nvim-web-devicons'
   use 'nvim-lualine/lualine.nvim'
@@ -22,26 +22,31 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-  use 'cocopon/iceberg.vim'
-  use 'ron-rs/ron.vim'
-  use 'fannheyward/coc-rust-analyzer'
-  use 'machakann/vim-highlightedyank'
-  use 'ap/vim-css-color'
-  use {
-    'neoclide/coc.nvim', branch = 'release',
+  use 'ron-rs/ron.vim' -- ron syntax highlighting
+  --use 'fannheyward/coc-rust-analyzer'
+  --use 'machakann/vim-highlightedyank'  -- FIXME: needed?
+  use 'ap/vim-css-color' -- show color in file
+  --use {
+  --  'neoclide/coc.nvim', branch = 'release',
+  --}
+  use 'rust-lang/rust.vim'  -- format rust files on save
+  use("simrat39/rust-tools.nvim") -- adds extra functionality over rust analyzer
+  use 'nvim-treesitter/nvim-treesitter'  -- syntax highlighting
+
+  use { -- lsp
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
   }
-  use 'rust-lang/rust.vim'
-  use 'nvim-treesitter/nvim-treesitter'
-  --use 'chriskempson/base16-vim'
-  --use({
-  --  'rose-pine/neovim',
-  --  as = 'rose-pine',
-  --  config = function()
-  --      vim.cmd('colorscheme rose-pine')
-  --  end
-  --})
-  --use { "catppuccin/nvim", as = "catppuccin" }
-  use "EdenEast/nightfox.nvim"
+  use "EdenEast/nightfox.nvim" -- color theme
+
+  use { -- autocompletion
+    'hrsh7th/nvim-cmp',
+    requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+  }
+  use 'lewis6991/gitsigns.nvim'
+  use 'lukas-reineke/indent-blankline.nvim'
+  use 'numToStr/Comment.nvim'
 
 
   -- Automatically set up your configuration after cloning packer.nvim

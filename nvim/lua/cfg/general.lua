@@ -51,8 +51,8 @@ o.cindent = true
 o.autoindent = true
 o.wrap = true
 o.textwidth = 300
-o.tabstop = 4
-o.shiftwidth = 4
+o.tabstop = 3
+o.shiftwidth = 3
 o.softtabstop = -1 -- if negative, shiftwidth value is used
 o.list = true
 o.listchars = "trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂"
@@ -91,3 +91,20 @@ o.novisualbell = true
 o.tm = 500
 
 o.syntax = true
+
+-- [[ Highlight on yank ]]
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
+
+vim.cmd [[
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+]]
