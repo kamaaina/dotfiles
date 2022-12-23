@@ -14,6 +14,7 @@ alias tg="flatpak run org.telegram.desktop &> /dev/null &; disown"
 alias office="flatpak run org.onlyoffice.desktopeditors &> /dev/null &; disown"
 alias vscode="flatpak run com.visualstudio.code &> /dev/null &; disown"
 alias emacs="emacsclient -c -a 'emacs'"
+alias r=ranger
 
 # rust
 set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
@@ -24,6 +25,7 @@ set -x TMP /tmp
 
 # path
 fish_add_path /usr/local/go/bin
+fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.emacs.d/bin
 
 set -x EDITOR vim

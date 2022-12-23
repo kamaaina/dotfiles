@@ -62,6 +62,7 @@
         //(command: Execute, value: "dmenu_run", modifier: ["modkey"], key: "p"),
         (command: Execute, value: "alacritty -e fish", modifier: ["modkey"], key: "Return"),
         (command: Execute, value: "$HOME/.config/leftwm/themes/current/scripts/picom-toggle.sh", modifier: ["modkey", "Shift"], key: "p"),
+        (command: Execute, value: "touch $HOME/.config/leftwm/themes/current/polybar.cfg", modifier: ["modkey", "Shift"], key: "o"),
         (command: CloseWindow, value: "", modifier: ["modkey"], key: "q"),
         (command: SoftReload, value: "", modifier: ["modkey", "Shift"], key: "r"),
         (command: Execute, value: "loginctl kill-session $XDG_SESSION_ID", modifier: ["modkey", "Shift"], key: "x"),
