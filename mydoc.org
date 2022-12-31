@@ -3,48 +3,137 @@
 * Docker
 ** Save and Load Image
 
-#+BEGIN_DOCKERSAVELOAD
+#+BEGIN_SRC shell
 docker save image:latest | gzip > myimage_latest.tar.gz
 docker load < myimage_latest.tar.gz
-#+END_DOCKERSAVELOAD
+#+END_SRC
 * MongoDB
 
 ** Using version 5.0
 Setup a mongodb docker container
 
-#+BEGIN_MONGO
+#+BEGIN_SRC shell
 docker pull mongodb:5.0
 mkdir ~/mongodb
 cp init-mongo.js ~/mongodb
-#+END_MONGO
+#+END_SRC
 
 ** Export From Docker
 Export a database from a docker container to a flat file that can then be used
 to import in another docker container (basically transferring a database from
 on server to another)
 
-#+BEGIN_EXPORT
+#+BEGIN_SRC shell
 docker exec <mongodb container> sh -c 'mongodump --authenticationDatabase admin -u <user> -p <password> --db <database> --archive' > db.dump
-#+END_EXPORT
+#+END_SRC
 
 ** Import to Docker
 Import a database that was exported from another docker container
 
-#+BEGIN_IMPORT
+#+BEGIN_SRC shell
 docker exec -i <mongodb container> sh -c 'mongorestore --authenticationDatabase admin -u <user> -p <password> --db <database> --archive' < db.dump
-#+END_IMPORT
+#+END_SRC
 
 ** Mongo Shell
 To get to the mongo shell in a docker container. Assumption is the docker container is up and running
 
-#+BEGIN_MONGOSHELL
+#+BEGIN_SRC shell
 docker exec -it mongodb /bin/sh
 mongo -u <user> <database>
-#+END_MONGOSHELL
+#+END_SRC
 
 ** URI
 The URI needed to connect to the mongo database. The example below is for fish shell
 
-#+BEGIN_SRC sh
+#+BEGIN_SRC shell
 set -x MONGODB_URI mongodb://<user>:<pass>@<host>:27017/<db_name>
 #+END_SRC
+
+* QMK - https://docs.qmk.fm/#/getting_started_build_tools
+** Installation
+
+#+BEGIN_SRC
+python3 -m pip install --user qmk
+#+END_SRC
+
+After installation run this:
+
+#+BEGIN_SRC
+qmk setup
+#+END_SRC
+
+Test the build with this
+
+#+BEGIN_SRC
+qmk compile -kb <keyboard> -km default
+
+eg. qmk compile -kb lily58/rev1 -km default
+#+END_SRC
+
+** Build Environment Defaults
+
+The keyboard option is the path relative to the keyboard directory, the above example would be found in qmk_firmware/keyboards/clueboard/66/rev4. If you’re unsure you can view a full list of supported keyboards with qmk list-keyboards
+
+#+BEGIN_SRC
+qmk config user.keyboard=lily58/rev1
+#+END_SRC
+
+You can also set your default keymap name. Most people use their GitHub username like the keymap name from the previous steps:
+
+#+BEGIN_SRC
+qmk config user.keymap=<github_username>
+eg. qmk config user.keymap=kamaaina
+#+END_SRC
+
+** Create New Keymap
+To create your own keymap you’ll want to create a copy of the default keymap. If you configured your build environment in the last step you can do that easily with the QMK CLI:
+
+#+BEGIN_SRC
+qmk new-keymap
+#+END_SRC
+
+If you did not configure your environment, or you have multiple keyboards, you can specify a keyboard name:
+
+#+BEGIN_SRC
+qmk new-keymap -kb <keyboard_name>
+#+END_SRC
+
+** Convert JSON to C
+After using QMK Configurator
+
+#+BEGIN_SRC
+qmk json2c kamaaina.json -o keymap.c
+#+END_SRC
+
+** Build Firmware
+When your changes to the keymap are complete you will need to build the firmware. To do so go back to your terminal window and run the compile command:
+
+#+BEGIN_SRC
+qmk compile
+#+END_SRC
+
+#+BEGIN_SRC
+qmk compile -kb <keyboard> -km <keymap>
+#+END_SRC
+
+** Flashing Firmware
+
+This has been made pretty simple compared to what it used to be. When you are ready to compile and flash your firmware, open up your terminal window and run the flash command:
+
+#+BEGIN_SRC
+qmk flash
+#+END_SRC
+
+If you did not configure your keyboard/keymap name in the CLI or you have multiple keyboards, you can specify the keyboard and keymap:
+
+#+BEGIN_SRC
+qmk flash -kb <my_keyboard> -km <my_keymap>
+#+END_SRC
+
+If your bootloader is not detected by qmk flash, try running qmk doctor for suggestions on how to fix common problems
+
+
+* QMK Configurator - https://config.qmk.fm/#/
+** Save/Load json file
+*** This file is your keymap. Once you are satisfied with it, download it from the website and you will need to convert it to keymap.c
+**** Copy this file to your keymap directory (ie. kamaaina)
