@@ -95,7 +95,7 @@ qmk new-keymap
 If you did not configure your environment, or you have multiple keyboards, you can specify a keyboard name:
 
 #+BEGIN_SRC
-qmk new-keymap -kb <keyboard_name>
+qmk new-keymap -kb <keyboard_name> -km kamaaina
 #+END_SRC
 
 ** Convert JSON to C
@@ -112,8 +112,18 @@ When your changes to the keymap are complete you will need to build the firmware
 qmk compile
 #+END_SRC
 
+If you did not configure defaults for your environment, or you have multiple keyboards, you can specify a keyboard and/or keymap:
+
 #+BEGIN_SRC
 qmk compile -kb <keyboard> -km <keymap>
+eg. qmk compile -kb lily58/rev1 -km kamaaina
+#+END_SRC
+
+*** My lily58 configuration - https://joshajohnson.com/sea-picro/#documentation
+Typically, the lily58 comes with Pro Micro's which use atmega32u4 as their microcontroller, but I am using the Sea-Picro which use the Raspberry PI RP2040 microcontroller so you need to build and flash like this
+
+#+BEGIN_SRC
+qmk flash -c -kb lily58/rev1 -km kamaaina -e CONVERT_TO=promicro_rp2040
 #+END_SRC
 
 ** Flashing Firmware
