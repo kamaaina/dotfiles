@@ -2,10 +2,10 @@
 set fish_greeting
 
 # key binding; namely caps lock -> esc
-xmodmap ~/.Xmodmap
+#xmodmap ~/.Xmodmap
 
 # turn on numlock
-/usr/bin/numlockx on
+#/usr/bin/numlockx on
 
 alias ls=lsd
 alias vim=nvim
