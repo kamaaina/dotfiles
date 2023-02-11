@@ -48,6 +48,10 @@ return require('packer').startup(function(use)
   use 'lukas-reineke/indent-blankline.nvim'
   use 'numToStr/Comment.nvim'
 
+  -- for zig support
+  use 'nvim-lua/completion-nvim'
+  use 'ziglang/zig.vim'
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -109,3 +109,9 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 ]]
+
+-- zig
+-- Set completeopt to have a better completion experience
+--vim.cmd [[set completeopt=menuone,noinsert,noselect]]
+-- Enable completions as you type
+g.completion_enable_auto_popup = 1
