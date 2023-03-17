@@ -23,6 +23,8 @@ o.showtabline = 2
 --o.formatoptions = o.formatoptions:gsub('r', '')
 --o.formatoptions = o.formatoptions:gsub('o', '')
 vim.cmd [[autocmd FileType * set formatoptions-=cro ]]
+-- for yaml, set the indent to 4 spaces
+vim.cmd [[autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab ]]
 
 -- format rust code on save
 g.rustfmt_autosave = 1
