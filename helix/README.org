@@ -1,0 +1,52 @@
+#+TITLE: Helix Config
+#+AUTHOR: mike
+#+PROPERTY: header-args :tangle config.toml
+# manual tangle by: C-v C-v t
+# autotangle needs this plugin to work: https://github.com/yilkalargaw/org-auto-tangle
+#+auto_tangle: t
+#+STARTUP: showeverything
+
+*   Table Of Contents :toc:
+- [[#about-helix][About Helix]]
+  -  [[#custom-key-bindings][Custom Key Bindings]]
+
+* About Helix
+An editor written in rust and has everything built in (no plugins). Name of binary
+is 'hx' when running from command line. Configuration file goes in
+$HOME/.config/helix/config.toml
+
+#+begin_src toml
+
+#theme = "onedark"
+theme = "dark_plus"
+
+[editor]
+line-number = "relative"
+true-color = true
+#mouse = false
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.lsp]
+display-messages = true
+
+#+end_src
+
+**  Custom Key Bindings
+In addition to the default key binding, the following were added as custom bindings
+
+| Custom Key Bindings | Notes                |
+| X                   | Highlight line above |
+
+#+begin_src toml
+
+[keys.normal]
+X = "extend_line_above"
+
+#+end_src
