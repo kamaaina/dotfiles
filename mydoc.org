@@ -4,9 +4,10 @@
 ** Save and Load Image
 
 #+BEGIN_SRC shell
-docker save image:latest | gzip > myimage_latest.tar.gz
-docker load < myimage_latest.tar.gz
+docker save image:latest | bzip2 > myimage_latest.tar.bz2
+docker load < myimage_latest.tar.bz2
 #+END_SRC
+
 * MongoDB
 
 ** Using version 5.0
