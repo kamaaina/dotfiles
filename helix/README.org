@@ -1,7 +1,7 @@
 #+TITLE: Helix Config
 #+AUTHOR: mike
 #+PROPERTY: header-args :tangle config.toml
-# manual tangle by: C-v C-v t
+# manual tangle by: C-c C-v t
 # autotangle needs this plugin to work: https://github.com/yilkalargaw/org-auto-tangle
 #+auto_tangle: t
 #+STARTUP: showeverything
