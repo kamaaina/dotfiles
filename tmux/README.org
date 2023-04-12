@@ -1,0 +1,144 @@
+#+TITLE: tmux config
+#+AUTHOR: mike
+#+PROPERTY: header-args :tangle ~/.tmux.conf
+# manual tangle by: C-c C-v t
+# autotangle needs this plugin to work: https://github.com/yilkalargaw/org-auto-tangle
+#+auto_tangle: t
+#+STARTUP: showeverything
+
+*   Table Of Contents :toc:
+- [[#about-tmux][About tmux]]
+  - [[#status-bar][Status Bar]]
+  - [[#colors][Colors]]
+  - [[#command-prefix][Command Prefix]]
+  - [[#general-settings][General Settings]]
+  - [[#creating-and-naming-windows][Creating and Naming Windows]]
+  - [[#navigation][Navigation]]
+  - [[#splitting-windows][Splitting Windows]]
+  - [[#multi-exec][Multi-Exec]]
+
+* About tmux
+A terminal multiplexer. Configuration file goes in $HOME/.tmux.conf
+Currently using version 3.3a
+
+** Status Bar
+Customization for the tmux status bar
+
+#+begin_src conf
+## to see the colors in bash
+#for i in {0..255} ; do
+#    printf "\x1b[38;5;${i}mcolour${i}\n"
+#done
+
+# selected window colors
+setw -g window-status-style bg=colour0,fg=colour34
+
+# non-selected window colors
+set -g status-left-style bg=colour10,fg=colour0
+
+set -g status-bg black
+set -g status-fg white
+# refresh rate in seconds
+set -g status-interval 5
+set -g status-left-length 90
+set -g status-right-length 60
+set  -g status-right '#[fg=colour14]#(tmux-mem-cpu-load 1) #[fg=colour6]#(uptime | cut -f 4-5 -d " " | cut -f 1 -d ",") up #[fg=colour2,bg=default]%a %l:%M:%S %p#[default] #[fg=colour33]%Y-%m-%d'
+set-window-option -g window-status-current-style bg=colour81,fg=colour16
+#+end_src
+
+** Colors
+#+begin_src conf
+# color
+set -g default-terminal "tmux-256color"
+#set -g default-terminal "alacritty"
+
+#set pane colors - hilight the active pane
+set-option -g pane-active-border-style fg=green
+#+end_src
+
+** Command Prefix
+Use Ctrl-a as the command prefix. The default is C-b, but I was used to screen
+#+begin_src conf
+set-option -g prefix C-a
+bind-key C-a last-window
+#+end_src
+
+** General Settings
+#+begin_src conf
+# Start window numbering at 1 as it is easier to navigate from keyboard
+set -g base-index 1
+
+# Allows for faster key repetition
+set -s escape-time 0
+
+# Rather than constraining window size to the maximum size of any client
+# connected to the *session*, constrain window size to the maximum size of any
+# client connected to *that window*. Much more reasonable.
+setw -g aggressive-resize on
+
+# reload config
+bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
+
+# notes
+# C-a ' <-- will prompt for an index. this is how to get to window 10 and beyond
+#           or use C-a n for next and C-a p for pervious
+#+end_src
+
+** Creating and Naming Windows
+#+begin_src conf
+# creates a new window but lets you name it first
+# C-a c will create a new window with default name
+#  note: C-a . will let you rename the current window
+# C-a C will create a new window and prompt for name
+bind-key C command-prompt -p "Name of new window: " "new-window -n '%%'"
+
+# auto window rename
+# if you have 3 windows (1, 2, and 3) and #2 is closed, this will make
+# window #3 get renamed to 2. if this was not set, you would be left with
+# windows 1 and 3
+# reorder windows
+set-option -g renumber-windows on
+
+#https://man.openbsd.org/OpenBSD-current/man1/tmux.1#automatic-rename
+set-window-option -g automatic-rename
+
+# do not automatically rename the tab
+set-option -g allow-rename off
+#+end_src
+
+** Navigation
+Widnow navigation as well as copy/paste
+
+#+begin_src conf
+# vim copy/paste mode
+set-window-option -g mode-keys vi
+bind-key -t vi-copy 'v' begin-selection
+bind-key -t vi-copy 'y' copy-selection
+
+# hjkl (left/down/up/righ) pane traversal
+# if you have a split vertical window, C-a j will go to the window below and
+# C-a k will move to the window above
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+#+end_src
+
+** Splitting Windows
+Commands to split a window either vertically or horizontally. Also, start in fish shell
+
+#+begin_src conf
+bind-key v split-window -h -v fish
+bind-key h split-window -v fish
+#+end_src
+
+** Multi-Exec
+This allows the typing in multiple windows at the same time. Maybe you need to run some
+command on multiple servers. You could open ssh sessions to the servers and then type
+the same command in all windows.
+
+#+begin_src conf
+# shortcut for synchronizing panes
+bind e setw synchronize-panes on
+bind E setw synchronize-panes off
+#+end_src
