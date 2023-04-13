@@ -1,0 +1,47 @@
+#+TITLE: fish config
+#+AUTHOR: mike
+#+PROPERTY: header-args :tangle config.fish
+# manual tangle by: C-c C-v t
+# autotangle needs this plugin to work: https://github.com/yilkalargaw/org-auto-tangle
+#+auto_tangle: t
+#+STARTUP: showeverything
+
+*   Table Of Contents :toc:
+- [[#about-fish-shell][About fish Shell]]
+
+* About fish Shell
+Configuration file goes in $HOME/.config/fish/config.fish
+
+#+begin_src sh
+# do not show a message when launching fish
+set fish_greeting
+
+# key binding; namely caps lock -> esc
+#xmodmap ~/.Xmodmap
+
+# turn on numlock
+#/usr/bin/numlockx on
+
+alias ls=lsd
+alias vim=nvim
+#alias cal="ncal -b"
+alias tg="flatpak run org.telegram.desktop &> /dev/null &; disown"
+alias office="flatpak run org.onlyoffice.desktopeditors &> /dev/null &; disown"
+alias vscode="flatpak run com.visualstudio.code &> /dev/null &; disown"
+alias emacs="emacsclient -c -a 'emacs'"
+alias r=ranger
+
+# rust
+set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
+set -x RUST_SRC_PATH $HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library
+
+# emacs
+set -x TMP /tmp
+
+# path
+fish_add_path /usr/local/go/bin
+fish_add_path $HOME/.local/bin
+fish_add_path $HOME/.emacs.d/bin
+
+set -x EDITOR vim
+#+end_src
