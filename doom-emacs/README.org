@@ -1,12 +1,20 @@
 #+title: Doom Emacs Notes
 
+*   Table Of Contents :toc:
+-   [[#installing][Installing]]
+  - [[#pre-requsite][Pre-Requsite]]
+  - [[#configuration][Configuration]]
+
 *   Installing
 #+begin_example
 git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
 #+end_example
 
-**   Configuration
+** Pre-Requsite
+Need at least emacs version 27.1, but doom recommends version 28
+
+** Configuration
 Use our custom configuration files
 
 #+begin_example

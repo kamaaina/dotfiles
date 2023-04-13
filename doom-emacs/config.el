@@ -77,19 +77,21 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; this will allow us to use cooler bullets
 (use-package org-superstar
   :config
   (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
 
+;; rainbow mode shows colors for the hex values
+;; currently only set to do that for these modes
 (add-hook! org-mode 'rainbow-mode)
 (add-hook! conf-windows-mode 'rainbow-mode)
 
+;; use larger fonts for level 1-5 bullets in org mode
 (custom-set-faces
   '(org-level-1 ((t (:inherit outline-1 :height 1.6))))
   '(org-level-2 ((t (:inherit outline-2 :height 1.4))))
   '(org-level-3 ((t (:inherit outline-3 :height 1.3))))
-  '(org-level-4 ((t (:inherit outline-4 :height 1.0))))
-  '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
+  '(org-level-4 ((t (:inherit outline-4 :height 1.2))))
+  '(org-level-5 ((t (:inherit outline-5 :height 1.1))))
 )
-
-(setq confirm-kill-emacs nil)
