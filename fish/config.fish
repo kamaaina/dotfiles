@@ -9,6 +9,7 @@ set fish_greeting
 
 alias ls=lsd
 alias vim=nvim
+alias lg=lazygit
 #alias cal="ncal -b"
 alias tg="flatpak run org.telegram.desktop &> /dev/null &; disown"
 alias office="flatpak run org.onlyoffice.desktopeditors &> /dev/null &; disown"
