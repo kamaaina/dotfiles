@@ -1,4 +1,29 @@
 #+title: My Documentation
+#+AUTHOR: mike
+#+STARTUP: showeverything
+
+* Table Of Contents :toc:
+- [[#docker][Docker]]
+  - [[#save-and-load-image][Save and Load Image]]
+- [[#mongodb][MongoDB]]
+  - [[#using-version-50][Using version 5.0]]
+  - [[#export-from-docker][Export From Docker]]
+  - [[#import-to-docker][Import to Docker]]
+  - [[#mongo-shell][Mongo Shell]]
+  - [[#uri][URI]]
+- [[#qmk---httpsdocsqmkfmgetting_started_build_tools][QMK - https://docs.qmk.fm/#/getting_started_build_tools]]
+  - [[#installation][Installation]]
+  - [[#build-environment-defaults][Build Environment Defaults]]
+  - [[#create-new-keymap][Create New Keymap]]
+  - [[#convert-json-to-c][Convert JSON to C]]
+  - [[#build-firmware][Build Firmware]]
+  - [[#flashing-firmware][Flashing Firmware]]
+- [[#qmk-configurator---httpsconfigqmkfm][QMK Configurator - https://config.qmk.fm/#/]]
+  - [[#saveload-json-file][Save/Load json file]]
+- [[#patch-files][Patch Files]]
+  - [[#creating-a-patch][Creating a Patch]]
+  - [[#apply-a-patch][Apply a Patch]]
+  - [[#undo-a-patch][Undo a Patch]]
 
 * Docker
 ** Save and Load Image
@@ -148,3 +173,48 @@ If your bootloader is not detected by qmk flash, try running qmk doctor for sugg
 ** Save/Load json file
 *** This file is your keymap. Once you are satisfied with it, download it from the website and you will need to convert it to keymap.c
 **** Copy this file to your keymap directory (ie. kamaaina)
+
+* Patch Files
+Using =diff= to create create/apply patches
+
+** Creating a Patch
+Create patch by running the following
+
+#+begin_example
+diff -u OriginalFile UpdatedFile > PatchFile
+#+end_example
+
+Assume you have a directory with some files and subdirectories inside.
+You recursively copy its content to some new directory and do the necessary updates in it.
+To create a patch file containing the modifications you’ve made, run the following command:
+
+#+begin_example
+diff -ruN OriginalDir UpdatedDir > PatchFile
+#+end_example
+
+
+** Apply a Patch
+Run the following to apply the patch
+
+#+begin_example
+patch OriginalFile < PatchFile
+#+end_example
+
+For a directory, run this:
+
+#+begin_example
+patch -p0 < PatchFile
+#+end_example
+
+
+** Undo a Patch
+To undo a patch, run the following
+
+#+begin_example
+patch -R OriginalFile < PatchFile
+#+end_example
+
+To undo for a directory, run this:
+#+begin_example
+patch -R -p0 OriginalFile < PatchFile
+#+end_example
