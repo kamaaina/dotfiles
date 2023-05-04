@@ -17,6 +17,9 @@ alias vscode="flatpak run com.visualstudio.code &> /dev/null &; disown"
 alias yubi="com.yubico.yubioath &> /dev/null &; disown"
 alias emacs="emacsclient -c -a 'emacs'"
 alias r=ranger
+abbr d cd ~/devel
+abbr gs git status
+abbr gp git pull
 
 # rust
 set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
