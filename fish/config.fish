@@ -39,3 +39,6 @@ set -x EDITOR vim
 # install starship with:
 # curl -sS https://starship.rs/install.sh | sh
 #starship init fish | source
+
+# colors
+set -x LS_COLORS 'di=0;94:ex=0;92:ln=36:ow=0;30;42'
