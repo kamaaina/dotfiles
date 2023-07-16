@@ -40,7 +40,12 @@
           x: 500, y: 300, height: 600, width: 1000
         ),
     ],
-    window_rules: [],
+    window_rules: [
+        ( window_title: "Telegram", spawn_on_tag: 9, spawn_floating: true ),
+        ( window_class: "crx_ophjlpahpchlmihnnnihgmmeilfjmjjc", spawn_on_tag: 9, spawn_floating: true ),
+        ( window_class: "brave-browser", spawn_on_tag: 2 ),
+        ( window_class: "google-chrome", spawn_on_tag: 3 ),
+    ],
     disable_current_tag_swap: false,
     disable_tile_drag: false,
     focus_behaviour: Sloppy,
