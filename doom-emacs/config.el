@@ -98,3 +98,6 @@
 
 ;; disable the confirmation of exiting emacs
 (setq confirm-kill-emacs nil)
+
+;; true transpraency; needs emacs v29+
+(add-to-list 'default-frame-alist '(alpha-background . 90))
