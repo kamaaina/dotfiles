@@ -42,9 +42,10 @@
     ],
     window_rules: [
         ( window_title: "Telegram", spawn_on_tag: 9, spawn_floating: true ),
-        ( window_class: "crx_ophjlpahpchlmihnnnihgmmeilfjmjjc", spawn_on_tag: 9, spawn_floating: true ),
+        //( window_class: "crx_ophjlpahpchlmihnnnihgmmeilfjmjjc", spawn_on_tag: 9, spawn_floating: true ),
         ( window_class: "brave-browser", spawn_on_tag: 2 ),
         ( window_class: "google-chrome", spawn_on_tag: 3 ),
+        ( window_title: "Application Finder", spawn_floating: true ),
     ],
     disable_current_tag_swap: false,
     disable_tile_drag: false,
