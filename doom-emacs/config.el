@@ -101,3 +101,6 @@
 
 ;; true transpraency; needs emacs v29+
 (add-to-list 'default-frame-alist '(alpha-background . 90))
+
+;; auto-tangle
+(add-hook 'org-mode-hook 'org-auto-tangle-mode)
