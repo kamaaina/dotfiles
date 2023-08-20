@@ -339,7 +339,7 @@ def init_widgets_list():
                        padding = 0
                        ),
               widget.GenPollText(
-                       fontsize = 16,
+                       fontsize = 18,
                        #func = kernel_version,
                        fmt = '💻{}',
                        func = lambda: subprocess.check_output("printf $(uname -r)", shell=True, text=True),
@@ -351,7 +351,7 @@ def init_widgets_list():
                        foreground = colors[7],
                        format = 'RAM: {MemPercent}%',
                        measure_mem = 'G',
-                       fontsize = 16,
+                       fontsize = 18,
                        update_interval = 5,
                       ),
               widget.Spacer(length = 8),
@@ -362,9 +362,10 @@ def init_widgets_list():
                        background = colors[0],
                        foreground = colors[8],
                        format = '%c%t 感じる: %f',
-                       fontsize = 16,
+                       fontsize = 18,
                        units = 'm',
                        ),
+              widget.Spacer(length = 8),
               widget.TextBox(
                        text = '',
                        font = "Ubuntu Mono",
@@ -376,6 +377,7 @@ def init_widgets_list():
               widget.Clock(
                        foreground = colors[1],
                        background = colors[4],
+                       fontsize = 18,
                        format = "%A, %B %d %H:%M "
                        ),
               widget.Systray(
