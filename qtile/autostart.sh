@@ -68,4 +68,4 @@ nitrogen --restore &
 #run telegram-desktop &
 
 # for left handed mouse
-xmodmap -e "pointer = 3 2 1"
+#xmodmap -e "pointer = 3 2 1"
