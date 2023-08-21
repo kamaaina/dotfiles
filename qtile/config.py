@@ -35,6 +35,9 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen, Rule
 from libqtile.command import lazy
 from libqtile.widget import Spacer
 #import arcobattery
+# Make sure 'qtile-extras' is installed or this config will not work.
+#from qtile_extras import widget
+#from qtile_extras.widget.decorations import BorderDecoration
 
 #mod4 or mod = super key
 mod = "mod4"
@@ -53,6 +56,10 @@ def window_to_next_group(qtile):
     if qtile.currentWindow is not None:
         i = qtile.groups.index(qtile.currentGroup)
         qtile.currentWindow.togroup(qtile.groups[i + 1].name)
+
+def kernel_version():
+    cp=subprocess.run(['/usr/bin/uname', '-r'], capture_output=True)
+    return '💻' + cp.stdout.decode('utf-8').strip()
 
 keys = [
 
@@ -162,16 +169,16 @@ keys = [
 groups = []
 
 # FOR QWERTY KEYBOARDS
-group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0",]
+group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 # FOR AZERTY KEYBOARDS
 #group_names = ["ampersand", "eacute", "quotedbl", "apostrophe", "parenleft", "section", "egrave", "exclam", "ccedilla", "agrave",]
 
-#group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "0",]
-group_labels = ["", "", "", "", "", "", "", "", "", "",]
+group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 "]
+#group_labels = ["", "", "", "", "", "", "", "", "", "",]
 #group_labels = ["Web", "Edit/chat", "Image", "Gimp", "Meld", "Video", "Vb", "Files", "Mail", "Music",]
 
-group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "floating", "monadtall",]
+group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "floating",]
 #group_layouts = ["monadtall", "matrix", "monadtall", "bsp", "monadtall", "matrix", "monadtall", "bsp", "monadtall", "monadtall",]
 
 for i in range(len(group_names)):
@@ -331,6 +338,48 @@ def init_widgets_list():
                        background = colors[0],
                        padding = 0
                        ),
+              widget.GenPollText(
+                       fontsize = 18,
+                       #func = kernel_version,
+                       fmt = '💻{}',
+                       func = lambda: subprocess.check_output("printf $(uname -r)", shell=True, text=True),
+                       update_interval = None,
+                      ),
+              widget.Spacer(length = 8),
+              widget.Memory(
+                       #background = colors[5],
+                       foreground = colors[7],
+                       format = 'RAM: {MemPercent}%',
+                       measure_mem = 'G',
+                       fontsize = 18,
+                       update_interval = 5,
+                      ),
+              widget.Spacer(length = 8),
+              widget.Wttr(
+                       location={
+                          'Fukuoka': 'Fukuoka',
+                       },
+                       background = colors[0],
+                       foreground = colors[8],
+                       format = '%c%t 感じる: %f',
+                       fontsize = 18,
+                       units = 'm',
+                       ),
+              widget.Spacer(length = 8),
+              widget.TextBox(
+                       text = '',
+                       font = "Ubuntu Mono",
+                       background = colors[1],
+                       foreground = colors[4],
+                       padding = -5,
+                       fontsize = 50
+                       ),
+              widget.Clock(
+                       foreground = colors[1],
+                       background = colors[4],
+                       fontsize = 18,
+                       format = "%A, %B %d %H:%M "
+                       ),
               widget.Systray(
                        icon_size = 22,
                        background = colors[0],
@@ -434,19 +483,6 @@ def init_widgets_list():
 #                       fmt = 'Keyboard: {}',
 #                       padding = 5
 #                       ),
-              widget.TextBox(
-                       text = '',
-                       font = "Ubuntu Mono",
-                       background = colors[1],
-                       foreground = colors[4],
-                       padding = 0,
-                       fontsize = 39
-                       ),
-              widget.Clock(
-                       foreground = colors[1],
-                       background = colors[4],
-                       format = "%A, %B %d %H:%M "
-                       ),
               ]
     return widgets_list
 
