@@ -66,3 +66,6 @@ nitrogen --restore &
 #run spotify &
 #run atom &
 #run telegram-desktop &
+
+# for left handed mouse
+xmodmap -e "pointer = 3 2 1"
