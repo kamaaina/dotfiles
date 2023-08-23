@@ -104,3 +104,6 @@
 
 ;; auto-tangle
 (add-hook 'org-mode-hook 'org-auto-tangle-mode)
+
+;; this allows for C-h j to go to the next page of commands for which-key
+(setq which-key-use-C-h-commands t)
