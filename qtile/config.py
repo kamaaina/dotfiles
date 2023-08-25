@@ -59,7 +59,7 @@ def window_to_next_group(qtile):
 
 def kernel_version():
     cp=subprocess.run(['/usr/bin/uname', '-r'], capture_output=True)
-    return '💻' + cp.stdout.decode('utf-8').strip()
+    return cp.stdout.decode('utf-8').strip()
 
 keys = [
 
@@ -280,11 +280,11 @@ def init_widgets_list():
                        foreground = colors[3],
                        background = colors[0]
                        ),
-              widget.Image(
-                       filename = "~/.config/qtile/icons/python-white.png",
-                       scale = "False",
-                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm)}
-                       ),
+#              widget.Image(
+#                       filename = "~/.config/qtile/icons/python-white.png",
+#                       scale = "False",
+#                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm)}
+#                       ),
               widget.Sep(
                        linewidth = 0,
                        padding = 6,
@@ -351,7 +351,7 @@ def init_widgets_list():
                        #func = kernel_version,
                        fmt = '💻{}',
                        func = lambda: subprocess.check_output("printf $(uname -r)", shell=True, text=True),
-                       update_interval = None,
+                       update_interval = 3600,
                       ),
               widget.Spacer(length = 8),
               widget.Memory(
@@ -360,7 +360,7 @@ def init_widgets_list():
                        format = 'RAM: {MemPercent}%',
                        measure_mem = 'G',
                        fontsize = 18,
-                       update_interval = 5,
+                       update_interval = 30,
                       ),
               widget.Spacer(length = 8),
               widget.Wttr(
