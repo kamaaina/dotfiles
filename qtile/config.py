@@ -179,7 +179,8 @@ group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 # FOR AZERTY KEYBOARDS
 #group_names = ["ampersand", "eacute", "quotedbl", "apostrophe", "parenleft", "section", "egrave", "exclam", "ccedilla", "agrave",]
 
-group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 "]
+#group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 "]
+group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 #group_labels = ["", "", "", "", "", "", "", "", "", "",]
 #group_labels = ["Web", "Edit/chat", "Image", "Gimp", "Meld", "Video", "Vb", "Files", "Mail", "Music",]
 
@@ -332,13 +333,15 @@ def init_widgets_list():
                        ),
               widget.TextBox(
                        text = '|',
-                       font = "Ubuntu Mono",
+                       font = "JetBrains Mono",
                        background = colors[0],
                        foreground = '474747',
                        padding = 2,
-                       fontsize = 14
+                       fontsize = 16
                        ),
               widget.WindowName(
+                       font = "JetBrains Mono",
+                       fontsize = 16,
                        foreground = colors[3],
                        background = colors[0],
                        padding = 0
