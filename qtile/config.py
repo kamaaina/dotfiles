@@ -77,6 +77,11 @@ keys = [
     Key([mod, "shift"], "q", lazy.window.kill()),
     Key([mod, "shift"], "r", lazy.restart()),
 
+# SUPER + CONTROL KEYS
+
+    Key([mod, "control"], "r", lazy.restart()),
+    Key([mod, "control"], "q", lazy.shutdown()),
+
 
 # QTILE LAYOUT KEYS
     Key([mod], "n", lazy.layout.normalize()),
@@ -286,7 +291,7 @@ def init_widgets_list():
                        background = colors[0]
                        ),
               widget.GroupBox(
-                       font = "FontAwesome",
+                       font = "JetBrains Mono",
                        fontsize = 16,
                        margin_y = 3,
                        margin_x = 0,
