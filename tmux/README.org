@@ -1,6 +1,6 @@
 #+TITLE: tmux config
 #+AUTHOR: mike
-#+PROPERTY: header-args :tangle ~/.tmux.conf
+#+PROPERTY: header-args :tangle ./tmux.conf
 # manual tangle by: C-c C-v t
 # autotangle needs this plugin to work: https://github.com/yilkalargaw/org-auto-tangle
 #+auto_tangle: t
@@ -8,22 +8,64 @@
 
 *   Table Of Contents :toc:
 - [[#about-tmux][About tmux]]
+  - [[#package-manager][Package Manager]]
   - [[#status-bar][Status Bar]]
   - [[#colors][Colors]]
   - [[#command-prefix][Command Prefix]]
   - [[#general-settings][General Settings]]
   - [[#creating-and-naming-windows][Creating and Naming Windows]]
   - [[#navigation][Navigation]]
-  - [[#splitting-windows][Splitting Windows]]
+  - [[#creatingsplitting-windows][Creating/Splitting Windows]]
   - [[#resize-windows][Resize Windows]]
   - [[#multi-exec][Multi-Exec]]
+  - [[#theme][Theme]]
+  - [[#tpm][tpm]]
 - [[#launching-tmux-with-script][Launching tmux with Script]]
   - [[#detaching][Detaching]]
   - [[#reattaching][Reattaching]]
 
 * About tmux
-A terminal multiplexer. Configuration file goes in $HOME/.tmux.conf
+A terminal multiplexer. Configuration file goes in $HOME/.config/tmux/tmux.conf
 Currently using version 3.3a
+
+** Package Manager
+Using the *tpm* package manager - https://github.com/tmux-plugins/tpm
+Install tpm like so:
+
+#+begin_example
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+#+end_example
+
+Put this at the /bottom/ of tmux.conf
+#+begin_example
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+# Other examples:
+# set -g @plugin 'github_username/plugin_name'
+# set -g @plugin 'github_username/plugin_name#branch'
+# set -g @plugin 'git@github.com:user/plugin'
+# set -g @plugin 'git@bitbucket.com:user/plugin'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
+#+end_example
+
+Reload tmux enviornment
+#+begin_example
+# type this in terminal if tmux is already running
+tmux source ~/.config/tmux/tmux.conf
+#+end_example
+
+*** Installing new plugins
+If you add new plugins, you will need to have tpm install them.
+
+#+begin_example
+<prefix> I
+# in my case, C-a I
+#+end_example
+
 
 ** Status Bar
 Customization for the tmux status bar
@@ -58,6 +100,10 @@ set -g default-terminal "tmux-256color"
 
 #set pane colors - hilight the active pane
 set-option -g pane-active-border-style fg=green
+
+# set the terminal color to 24-bit color
+# basically, make the colors the same when inside of tmux and not
+set-option -sa terminal-overrides ",xterm*:Tc"
 #+end_src
 
 ** Command Prefix
@@ -116,8 +162,8 @@ Widnow navigation as well as copy/paste
 #+begin_src conf
 # vim copy/paste mode
 set-window-option -g mode-keys vi
-bind-key -t vi-copy 'v' begin-selection
-bind-key -t vi-copy 'y' copy-selection
+#bind-key -t vi-copy 'v' begin-selection
+#bind-key -t vi-copy 'y' copy-selection
 
 # hjkl (left/down/up/righ) pane traversal
 # if you have a split vertical window, C-a j will go to the window below and
@@ -128,10 +174,11 @@ bind k select-pane -U
 bind l select-pane -R
 #+end_src
 
-** Splitting Windows
-Commands to split a window either vertically or horizontally. Also, start in fish shell
+** Creating/Splitting Windows
+Commands to create or split a window either vertically or horizontally. Also, start in fish shell
 
 #+begin_src conf
+bind-key c new-window fish
 bind-key v split-window -h -v fish
 bind-key h split-window -v fish
 #+end_src
@@ -151,12 +198,50 @@ bind e setw synchronize-panes on
 bind E setw synchronize-panes off
 #+end_src
 
+** Theme
+Using the catppuccin theme
+
+#+begin_example
+set -g @catppuccin_status_right_separator_inverse "yes"
+set -g @catppuccin_status_fill "all"
+set -g @catppuccin_status_connect_separator "no"
+set -g @catppuccin_window_default_fill "none"
+set -g @catppuccin_window_current_fill "all"
+#+end_example
+
+*** Date and Time
+#+begin_src conf
+set -g @catppuccin_date_time "%Y-%m-%d %H:%M:%S"
+#+end_src
+
+** tpm
+Per tpm docs, this should go a the bottom of config
+
+Other plugins can be installed like this:
+#+begin_example
+Other examples:
+set -g @plugin 'github_username/plugin_name'
+set -g @plugin 'github_username/plugin_name#branch'
+set -g @plugin 'git@github.com:user/plugin'
+set -g @plugin 'git@bitbucket.com:user/plugin'
+set -g @plugin 'catppuccin/tmux'
+#+end_example
+
+#+begin_src conf
+set -g @plugin 'tmux-plugins/tpm'
+#set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'dreamsofcode-io/catppuccin-tmux'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
+#+end_src
+
 * Launching tmux with Script
 Use this script to launch tmux
 The ~-n~ option is to name the window
 The ~-c~ option changes to the specified directory
 
-#+begin_src sh
+#+begin_example
 #!/bin/sh
 
 SESSION=mike
@@ -167,7 +252,7 @@ tmux new-window -t $SESSION -d -n compile -c ~/devel fish
 tmux new-window -t $SESSION -d -n home -c ~/ fish
 tmux select-window -t code
 tmux -2 attach-session -t $SESSION
-#+end_src
+#+end_example
 
 ** Detaching
 To detach from the running tmux session use C-a d
@@ -175,6 +260,6 @@ To detach from the running tmux session use C-a d
 ** Reattaching
 To attach to a session use
 
-#+begin_src sh
+#+begin_example
 tmux attach-session -t <session-name>
-#+end_src
+#+end_example
