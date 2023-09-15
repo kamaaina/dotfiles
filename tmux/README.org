@@ -165,6 +165,10 @@ set-window-option -g mode-keys vi
 #bind-key -t vi-copy 'v' begin-selection
 #bind-key -t vi-copy 'y' copy-selection
 
+# Allows us to use C-a a <command> to send commands to a TMUX session inside
+# another TMUX session
+bind-key a send-prefix
+
 # hjkl (left/down/up/righ) pane traversal
 # if you have a split vertical window, C-a j will go to the window below and
 # C-a k will move to the window above
