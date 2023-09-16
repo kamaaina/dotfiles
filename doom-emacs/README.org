@@ -1,11 +1,12 @@
 #+title: Doom Emacs Notes
 
-*   Table Of Contents :toc:
--   [[#installing][Installing]]
+* Table Of Contents :toc:
+- [[#installing][Installing]]
   - [[#pre-requsite][Pre-Requsite]]
   - [[#configuration][Configuration]]
+- [[#upgrading][Upgrading]]
 
-*   Installing
+* Installing
 #+begin_example
 git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
@@ -13,6 +14,7 @@ git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
 
 ** Pre-Requsite
 Need at least emacs version 27.1, but doom recommends version 28
+However, for transparency, need version 29 or later
 
 ** Configuration
 Use our custom configuration files
@@ -22,5 +24,12 @@ cd ~/.doom.d
 ln -s ~/dotfiles/doom-emacs/config.el config.el
 ln -s ~/dotfiles/doom-emacs/init.el init.el
 ln -s ~/dotfiles/doom-emacs/packages.el packages.el
+doom upgrade && doom sync
+#+end_example
+
+* Upgrading
+To upgrade doom, run the following:
+
+#+begin_example
 doom upgrade && doom sync
 #+end_example
