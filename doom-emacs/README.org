@@ -30,6 +30,13 @@ doom upgrade && doom sync
 * Upgrading
 To upgrade doom, run the following:
 
-#+begin_example
+#+begin_example bash
+# kill the emacs daemon that is running
+ps -ef | grep emacs
+
+# upgrade doom-emacs
 doom upgrade && doom sync
+
+# start the daemon
+/usr/bin/emacs --daemon &; disown
 #+end_example
