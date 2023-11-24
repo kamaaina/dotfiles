@@ -372,6 +372,7 @@ def init_widgets_list():
                        format = '%c%t 感じる: %f',
                        fontsize = 18,
                        units = 'm',
+                       update_interval = 3600,
                        ),
               widget.Spacer(length = 8),
               widget.TextBox(
