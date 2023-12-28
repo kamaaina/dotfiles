@@ -1,0 +1,14 @@
+[font]
+size = 13.0
+
+[shell]
+args = ["--login"]
+program = "/usr/bin/fish"
+
+[window]
+decorations = "full"
+opacity = 0.85
+
+[window.padding]
+x = 3
+y = 0
