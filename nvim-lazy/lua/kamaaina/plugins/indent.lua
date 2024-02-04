@@ -1,24 +1,24 @@
 return {
-"numToStr/Comment.nvim",
-event = { "BufReadPre", "BufNewFile" },
+	"lukas-reineke/indent-blankline.nvim",
+	event = { "BufReadPre", "BufNewFile" },
 
--- See `:help ibl.commands`
+	-- See `:help ibl.commands`
 
--- require('ibl').setup {
---    char = '┊',
---    show_trailing_blankline_indent = false,
--- }
+	-- require('ibl').setup {
+	--    char = '┊',
+	--    show_trailing_blankline_indent = false,
+	-- }
 
-config = function()
-local lbl = require('ibl')
-lbl.setup({
-  enabled = true,
-  scope = {
-    enabled = false,
-  },
-  indent = {
-    char = '▏',
-  },
-  })
-end,
+	config = function()
+		local ibl = require("ibl")
+		ibl.setup({
+			enabled = true,
+			scope = {
+				enabled = false,
+			},
+			indent = {
+				char = "▏",
+			},
+		})
+	end,
 }
