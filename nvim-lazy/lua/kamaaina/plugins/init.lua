@@ -5,7 +5,5 @@ return {
 
 	"ap/vim-css-color", -- show color in file
 
-	"rust-lang/rust.vim", -- format rust files on save
-
-	"lukas-reineke/indent-blankline.nvim",
+	"lukas-reineke/indent-blankline.nvim", -- indentation guides for code blocks
 }
