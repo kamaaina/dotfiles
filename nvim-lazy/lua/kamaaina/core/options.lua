@@ -1,18 +1,17 @@
-
 local g = vim.g
 local o = vim.o
 local opt = vim.opt
 
 o.nocompatible = true
 
-vim.cmd [[ filetype plugin indent on ]]
+vim.cmd([[ filetype plugin indent on ]])
 
 -- map <leader> to space
 -- g.mapleader = " "
 -- g.maplocalleader = " "
 
 o.termguicolors = true
-o.background = 'dark'
+o.background = "dark"
 o.autochdir = true
 
 -- show tabline even if we only have 1 file open
@@ -23,9 +22,9 @@ o.showtabline = 2
 --o.formatoptions = o.formatoptions:gsub('c', '')
 --o.formatoptions = o.formatoptions:gsub('r', '')
 --o.formatoptions = o.formatoptions:gsub('o', '')
-vim.cmd [[autocmd FileType * set formatoptions-=cro ]]
+vim.cmd([[autocmd FileType * set formatoptions-=cro ]])
 -- for yaml, set the indent to 4 spaces
-vim.cmd [[autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab ]]
+vim.cmd([[autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab ]])
 
 -- format rust code on save
 g.rustfmt_autosave = 1
@@ -70,7 +69,7 @@ o.ignorecase = true
 o.smartcase = true
 
 -- tenths of a second to blink when matching brackets
-o.mat=2
+o.mat = 5
 o.showmatch = true
 
 -- undo and backup options
@@ -97,24 +96,18 @@ o.syntax = true
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank({ timeout=600 })
-  end,
-  group = highlight_group,
-  pattern = '*',
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank({ timeout = 600 })
+	end,
+	group = highlight_group,
+	pattern = "*",
 })
 
 -- set the location of the cursor to last known position of file when it was closed
-vim.cmd [[
+vim.cmd([[
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
-]]
-
--- zig
--- Set completeopt to have a better completion experience
---vim.cmd [[set completeopt=menuone,noinsert,noselect]]
--- Enable completions as you type
-g.completion_enable_auto_popup = 1
+]])
