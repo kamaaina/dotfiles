@@ -1,7 +1,7 @@
 return {
 	{
 		"simrat39/rust-tools.nvim",
-		event = { "BufReadPost *.rs" },
+		-- event = { "BufReadPost *.rs" },
 		dependencies = {
 			"neovim/nvim-lspconfig",
 			"nvim-lua/plenary.nvim",
@@ -17,7 +17,7 @@ return {
 				-- callback to execute once rust-analyzer is done initializing the workspace
 				-- The callback receives one parameter indicating the `health` of the server: "ok" | "warning" | "error"
 				on_initialized = nil,
-				-- ft = true,
+				ft = true,
 
 				-- automatically call RustReloadWorkspace when writing to a Cargo.toml file.
 				reload_workspace_from_cargo_toml = true,

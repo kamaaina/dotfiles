@@ -13,6 +13,8 @@ return {
 				"html",
 				"json",
 				"lua",
+				"markdown_inline",
+				"regex",
 				"ron",
 				"rust",
 				"ruby",
