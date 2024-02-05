@@ -5,7 +5,19 @@ return {
 	},
 
 	config = function()
-		require("bufferline").setup({})
+		require("bufferline").setup({
+			options = {
+				mode = "buffers",
+				offsets = {
+					{
+						filetype = "NvimTree",
+						text = "File Explorer",
+						highlight = "Directory",
+						separator = true, -- use a "true" to enable the default, or set your own character
+					},
+				},
+			},
+		})
 
 		-- set keymaps
 		vim.keymap.set("n", "<leader>bp", "<cmd>BufferLineCyclePrev<CR>", {
