@@ -12,6 +12,12 @@ return {
 						path = 1,
 					},
 				},
+				lualine_c = {
+					{
+						"filename",
+						path = 2,
+					},
+				},
 			},
 		})
 	end,
