@@ -34,6 +34,7 @@ return {
 		})
 
 		telescope.load_extension("fzf")
+		telescope.load_extension("noice") -- run with Telescope Noice; didn't bind to key as i don't use too much
 
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness

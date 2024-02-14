@@ -39,6 +39,6 @@ return {
 
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
-		keymap.set("n", "<leader>nd", "<cmd>Noicedismiss<cr>", { desc = "Dismiss Noice Message" })
+		keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<cr>", { desc = "Dismiss Noice Message" })
 	end,
 }
