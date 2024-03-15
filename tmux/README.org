@@ -40,6 +40,7 @@ Put this at the /bottom/ of tmux.conf
 #+begin_example
 # List of plugins
 set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 
 # Other examples:
