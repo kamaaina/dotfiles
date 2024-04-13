@@ -9,7 +9,7 @@
 * Installing
 #+begin_example
 git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.emacs.d
-~/.emacs.d/bin/doom install
+~/.config/emacs/bin/doom install
 #+end_example
 
 ** Pre-Requsite
@@ -20,7 +20,7 @@ However, for transparency, need version 29 or later
 Use our custom configuration files
 
 #+begin_example
-cd ~/.doom.d
+cd ~/.config/doom
 ln -s ~/dotfiles/doom-emacs/config.el config.el
 ln -s ~/dotfiles/doom-emacs/init.el init.el
 ln -s ~/dotfiles/doom-emacs/packages.el packages.el
