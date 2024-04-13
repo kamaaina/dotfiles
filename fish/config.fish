@@ -31,7 +31,7 @@ set -x TMP /tmp
 # path
 fish_add_path /usr/local/go/bin
 fish_add_path $HOME/.local/bin
-fish_add_path $HOME/.emacs.d/bin
+fish_add_path $HOME/.config/emacs/bin
 
 set -x EDITOR vim
 
