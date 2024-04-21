@@ -14,7 +14,7 @@ alias lg=lazygit
 alias tg="flatpak run org.telegram.desktop &> /dev/null &; disown"
 alias office="flatpak run org.onlyoffice.desktopeditors &> /dev/null &; disown"
 alias vscode="flatpak run com.visualstudio.code &> /dev/null &; disown"
-alias yubi="com.yubico.yubioath &> /dev/null &; disown"
+alias yubi="flatpak run com.yubico.yubioath &> /dev/null &; disown"
 alias emacs="emacsclient -c -a 'emacs'"
 alias r=ranger
 abbr d cd ~/devel
@@ -31,7 +31,7 @@ set -x TMP /tmp
 # path
 fish_add_path /usr/local/go/bin
 fish_add_path $HOME/.local/bin
-fish_add_path $HOME/.emacs.d/bin
+fish_add_path $HOME/.config/emacs/bin
 
 set -x EDITOR vim
 

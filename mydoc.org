@@ -15,6 +15,12 @@
   - [[#creating-a-patch][Creating a Patch]]
   - [[#apply-a-patch][Apply a Patch]]
   - [[#undo-a-patch][Undo a Patch]]
+- [[#org-mode][org-mode]]
+  - [[#source-code-block][Source code block]]
+  - [[#example-code-block][Example code block]]
+  - [[#folding][Folding]]
+  - [[#tangle][Tangle]]
+  - [[#table-of-contents][Table of Contents]]
 
 * Docker
 ** Save and Load Image
@@ -110,3 +116,26 @@ To undo for a directory, run this:
 #+begin_example
 patch -R -p0 OriginalFile < PatchFile
 #+end_example
+
+* org-mode
+Some shortcuts and keybindings that are out of the box from emacs for org-mode
+
+** Source code block
+~<s<tab>~
+
+** Example code block
+~<e<tab>~
+
+** Folding
+shift+tab will cycle through folding/expanding everything
+
+** Tangle
+
+#+PROPERTY: header-args :tangle ./tmux.conf
+# manual tangle by: C-c C-v t
+# autotangle needs this plugin to work: https://github.com/yilkalargaw/org-auto-tangle
+#+auto_tangle: t
+#+STARTUP: showeverything
+
+** Table of Contents
+use ~:toc:~
