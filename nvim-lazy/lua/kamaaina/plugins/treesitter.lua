@@ -19,6 +19,7 @@ return {
 				"rust",
 				"ruby",
 				"vim",
+				"xml",
 				"yaml",
 			},
 
