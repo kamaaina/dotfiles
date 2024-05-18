@@ -54,6 +54,11 @@ return {
 
 	 let g:VM_add_cursor_at_pos_no_mappings = 1
 
+    let g:VM_Mono_hl   = 'DiffText'
+    let g:VM_Extend_hl = 'DiffAdd'
+    let g:VM_Cursor_hl = 'Visual'
+    let g:VM_Insert_hl = 'DiffChange'
+
 ]])
 	end,
 }
