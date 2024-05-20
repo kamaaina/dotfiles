@@ -2,8 +2,6 @@ local g = vim.g
 local o = vim.o
 local opt = vim.opt
 
-o.nocompatible = true
-
 vim.cmd([[ filetype plugin indent on ]])
 
 -- map <leader> to space
@@ -77,7 +75,6 @@ o.backup = false
 o.writebackup = false
 o.undofile = true
 o.swapfile = false
-o.nowb = true
 -- o.backupdir = '/tmp/'
 -- o.directory = '/tmp/'
 -- o.undodir = '/tmp/'
@@ -87,12 +84,8 @@ o.splitright = true
 o.splitbelow = true
 
 -- no sounds on error
-o.noerrorbells = true
-o.novisualbell = true
 --o.t_vb =
 o.tm = 500
-
-o.syntax = true
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
