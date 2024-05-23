@@ -1,3 +1,4 @@
+--[=====[
 return {
 	"EdenEast/nightfox.nvim",
 
@@ -19,6 +20,7 @@ return {
 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 	end,
 }
+--]=====]
 
 --[=====[
 return {
@@ -71,3 +73,60 @@ return {
 	end,
 }
 --]=====]
+
+--[=====[
+return {
+	"bluz71/vim-moonfly-colors",
+	name = "moonfly",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		vim.cmd([[ colorscheme moonfly ]])
+		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	end,
+}
+--]=====]
+
+--[=====[
+return {
+	"navarasu/onedark.nvim",
+	--name = "onedark",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		require("onedark").setup({
+			style = "darker",
+		})
+		require("onedark").load()
+		--vim.cmd([[ colorscheme onedark ]])
+		--vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		--vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	end,
+}
+--]=====]
+
+--[=====[
+return {
+	"folke/tokyonight.nvim",
+	lazy = false,
+	priority = 1000,
+	opts = {},
+	config = function()
+		vim.cmd([[ colorscheme tokyonight ]])
+		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	end,
+}
+--]=====]
+
+return {
+	"tiagovla/tokyodark.nvim",
+	opts = {
+		-- custom options here
+	},
+	config = function(_, opts)
+		require("tokyodark").setup(opts) -- calling setup is optional
+		vim.cmd([[colorscheme tokyodark]])
+	end,
+}

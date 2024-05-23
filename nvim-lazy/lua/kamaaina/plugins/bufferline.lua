@@ -16,6 +16,9 @@ return {
 						separator = true, -- use a "true" to enable the default, or set your own character
 					},
 				},
+				indicator = {
+					style = "underline",
+				},
 			},
 		})
 
