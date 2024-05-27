@@ -20,6 +20,7 @@ return {
 				"ron",
 				"rust",
 				"ruby",
+				"toml",
 				"vim",
 				"xml",
 				"yaml",
