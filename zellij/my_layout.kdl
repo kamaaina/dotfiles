@@ -1,0 +1,12 @@
+layout {
+    my_tab name="dev" cwd="~/devel"
+    my_tab name="compile" cwd="~/devel"
+    my_tab name="home" cwd="~/" focus=true
+    my_tab name="tmp" cwd="/tmp"
+    tab_template name="my_tab" {
+        pane
+        pane size=1 borderless=true {
+         plugin location="zellij:compact-bar"
+        }
+    }
+}

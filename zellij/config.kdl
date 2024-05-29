@@ -277,7 +277,7 @@ pane_frames false
 // }
 
 themes {
-  catppuccin-mocha {
+  my_theme {
     bg "#585b70" // Surface2
     fg "#cdd6f4"
     red "#f38ba8"
@@ -295,12 +295,12 @@ themes {
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "catppuccin-mocha"
+theme "my_theme"
 
 // The name of the default layout to load on startup
 // Default: "default"
 //
-default_layout "compact"
+default_layout "my_layout"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
