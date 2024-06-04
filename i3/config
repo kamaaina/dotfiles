@@ -198,3 +198,14 @@ default_floating_border pixel 0
 
 # set key repition frequency
 exec_always --no-startup-id xset r rate 400 50
+
+exec_always --no-startup-id killall sxhkd
+exec_always --no-startup-id sxhkd -c ~/.config/qtile/sxhkd/sxhkdrc
+
+exec_always --no-startup-id killall picom
+exec_always --no-startup-id picom --config $HOME/.config/qtile/scripts/picom.conf
+
+exec_always --no-startup-id nitrogen --restore
+
+# for left handed mouse
+#exec_always --no-startup-id xmodmap -e "pointer = 3 2 1"
