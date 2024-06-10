@@ -10,7 +10,7 @@ set fish_greeting
 #alias ls=lsd
 alias ls=eza
 alias ll="ls -lg"
-alias ltr="ls -lg --sort=time"
+#alias ltr="ls -lg --sort=time"
 alias vim=nvim
 alias lg=lazygit
 #alias cal="ncal -b"
@@ -23,6 +23,8 @@ alias r=ranger
 abbr d cd ~/devel
 abbr gs git status
 abbr gp git pull
+abbr ltr ls -lg --sort=time
+abbr ltrS ls -lg --sort=size
 
 # rust
 set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
