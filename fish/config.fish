@@ -7,7 +7,10 @@ set fish_greeting
 # turn on numlock
 #/usr/bin/numlockx on
 
-alias ls=lsd
+#alias ls=lsd
+alias ls=eza
+alias ll="ls -lg"
+alias ltr="ls -lg --sort=time"
 alias vim=nvim
 alias lg=lazygit
 #alias cal="ncal -b"
