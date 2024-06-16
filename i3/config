@@ -215,4 +215,5 @@ exec --no-startup-id ibus-daemon -drx
 
 
 for_window [class="TelegramDesktop" instance="telegram-desktop"] floating enable
+for_window [class="Virt-manager" instance="virt-manager"] floating enable
 
