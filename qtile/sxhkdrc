@@ -35,6 +35,9 @@ alt + r
 # SUPER + ... KEYS
 #################################################################
 
+super + ctrl + l
+    betterlockscreen -q -l
+
 #Conky-toggle
 super + c
     conky-toggle
@@ -147,7 +150,7 @@ ctrl + shift + Escape
 Print
     scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
 
-#screeenshooter
+#screenshooter
 ctrl + Print
      xfce4-screenshooter
 
