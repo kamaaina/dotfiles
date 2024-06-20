@@ -30,6 +30,11 @@ abbr ltrS ls -lg --sort=size
 set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
 set -x RUST_SRC_PATH $HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library
 
+# ibus settings for japanese input
+set -x GTK_IM_MODULE 'ibus'
+set -x QT_IM_MODULE 'ibus'
+set -x XMODIFIERS "@im='ibus'"
+
 # emacs
 set -x TMP /tmp
 
