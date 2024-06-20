@@ -212,6 +212,7 @@ exec_always --no-startup-id nitrogen --restore
 #exec_always --no-startup-id xmodmap -e "pointer = 3 2 1"
 
 exec --no-startup-id ibus-daemon -drx
+exec --no-startup-id udiskie
 
 
 for_window [class="TelegramDesktop" instance="telegram-desktop"] floating enable
