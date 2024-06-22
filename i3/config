@@ -223,3 +223,4 @@ for_window [class="Virt-manager" instance="virt-manager"] floating enable
 # essentially super+l will lockscreen
 bindsym Super_L exec betterlockscreen -q -l
 
+exec --no-startup-id /usr/bin/emacs --daemon
