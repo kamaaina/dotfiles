@@ -213,6 +213,7 @@ exec_always --no-startup-id nitrogen --restore
 
 exec --no-startup-id ibus-daemon -drx
 exec --no-startup-id udiskie
+exec --no-startup-id volumeicon
 
 
 for_window [class="TelegramDesktop" instance="telegram-desktop"] floating enable
@@ -224,3 +225,4 @@ for_window [class="Virt-manager" instance="virt-manager"] floating enable
 bindsym Super_L exec betterlockscreen -q -l
 
 exec --no-startup-id /usr/bin/emacs --daemon
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
