@@ -218,6 +218,7 @@ exec --no-startup-id volumeicon
 
 for_window [class="TelegramDesktop" instance="telegram-desktop"] floating enable
 for_window [class="Virt-manager" instance="virt-manager"] floating enable
+for_window [class="Archlinux-tweak-tool.py" instance="archlinux-tweak-tool.py"] floating enable
 
 # The Super L key is a keysym, not a modifier, so you can’t bind it directly
 # However, you can bind a command to the Super L key by using the bindsym command in your i3 configuration file
