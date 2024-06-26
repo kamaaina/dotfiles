@@ -14,12 +14,13 @@ alias ll="ls -lg --icons"
 alias vim=nvim
 alias lg=lazygit
 #alias cal="ncal -b"
-alias tg="flatpak run org.telegram.desktop &> /dev/null &; disown"
-alias office="flatpak run org.onlyoffice.desktopeditors &> /dev/null &; disown"
-alias vscode="flatpak run com.visualstudio.code &> /dev/null &; disown"
+#alias tg="flatpak run org.telegram.desktop &> /dev/null &; disown"
+#alias office="flatpak run org.onlyoffice.desktopeditors &> /dev/null &; disown"
+#alias vscode="flatpak run com.visualstudio.code &> /dev/null &; disown"
 alias yubi="flatpak run com.yubico.yubioath &> /dev/null &; disown"
 alias emacs="emacsclient -c -a 'emacs'"
-alias r=ranger
+#alias r=ranger
+alias cat=bat
 abbr d cd ~/devel
 abbr gs git status
 abbr gp git pull
