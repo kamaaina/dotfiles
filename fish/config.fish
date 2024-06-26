@@ -55,3 +55,13 @@ set -x EDITOR vim
 
 # colors
 set -x LS_COLORS 'di=0;94:ex=0;92:ln=36:ow=0;30;42'
+
+# yazi
+function yy
+	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+	yazi $argv --cwd-file="$tmp"
+	if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
+end
