@@ -28,8 +28,13 @@ abbr ltr ls -lg --sort=time
 abbr ltrS ls -lg --sort=size
 
 # rust
-set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
-set -x RUST_SRC_PATH $HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library
+#set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
+#set -x RUST_SRC_PATH $HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library
+#source "$HOME/.cargo/env.fish"
+if not contains "$HOME/.cargo/bin" $PATH
+    # Prepending path in case a system-installed rustc needs to be overridden
+    set -x PATH "$HOME/.cargo/bin" $PATH
+end
 
 # ibus settings for japanese input
 set -x GTK_IM_MODULE 'ibus'

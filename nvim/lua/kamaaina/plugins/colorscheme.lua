@@ -1,4 +1,3 @@
---[=====[
 return {
 	"EdenEast/nightfox.nvim",
 
@@ -20,7 +19,6 @@ return {
 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 	end,
 }
---]=====]
 
 --[=====[
 return {
@@ -120,6 +118,7 @@ return {
 }
 --]=====]
 
+--[=====[
 return {
 	"tiagovla/tokyodark.nvim",
 	opts = {
@@ -130,3 +129,4 @@ return {
 		vim.cmd([[colorscheme tokyodark]])
 	end,
 }
+--]=====]
