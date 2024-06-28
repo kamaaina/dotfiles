@@ -228,3 +228,10 @@ for_window [class="Google-chrome" instance="crx_ophjlpahpchlmihnnnihgmmeilfjmjjc
 
 exec --no-startup-id /usr/bin/emacs --daemon
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# scratchpad move/show
+#bindsym $mod+Shift+minus move scratchpad
+#bindsym $mod+minus scratchpad show
+
+bindsym $mod+Shift+minus [title="LINE"] move scratchpad
+bindsym $mod+minus [title="LINE"] scratchpad show
