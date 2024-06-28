@@ -71,3 +71,6 @@ function yy
 	end
 	rm -f -- "$tmp"
 end
+
+# keep the text on screen after quitting bat
+set -x BAT_PAGER "less -XR"
