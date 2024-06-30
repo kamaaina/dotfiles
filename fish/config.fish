@@ -20,7 +20,7 @@ alias lg=lazygit
 alias yubi="flatpak run com.yubico.yubioath &> /dev/null &; disown"
 alias emacs="emacsclient -c -a 'emacs'"
 #alias r=ranger
-alias cat=bat --paging=never
+alias cat="bat --paging=never"
 abbr d cd ~/devel
 abbr gs git status
 abbr gp git pull
