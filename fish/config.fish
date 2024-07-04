@@ -74,3 +74,5 @@ end
 
 # keep the text on screen after quitting bat
 set -x BAT_PAGER "less -XR"
+
+zoxide init --cmd cd fish | source
