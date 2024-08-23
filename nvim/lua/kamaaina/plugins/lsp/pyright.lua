@@ -17,6 +17,7 @@ return {
 		local lspconfig = require("lspconfig")
 
 		local on_attach = function(client, bufnr)
+			local opts = { silent = true }
 			opts.buffer = bufnr
 		end
 
