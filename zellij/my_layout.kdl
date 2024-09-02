@@ -6,7 +6,8 @@ layout {
     tab_template name="my_tab" {
         pane
         pane size=1 borderless=true {
-         plugin location="zellij:compact-bar"
+            plugin location="zellij:compact-bar"
+            //plugin location="file:$HOME/.config/zellij/layouts/zellij-cb.wasm"
         }
     }
 }

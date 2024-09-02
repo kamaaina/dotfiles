@@ -278,17 +278,17 @@ pane_frames false
 
 themes {
   my_theme {
-    bg "#585b70" // Surface2
-    fg "#cdd6f4"
+    bg "#585b70"
+    fg "#cdd6f4"      // the non-current tabs
     red "#f38ba8"
-    green "#a6e3a1"
+    green "#a6e3a1"   // the current tab highlighted
     blue "#89b4fa"
     yellow "#f9e2af"
-    magenta "#f5c2e7" // Pink
-    orange "#fab387" // Peach
-    cyan "#89dceb" // Sky
-    black "#181825" // Mantle
-    white "#cdd6f4"
+    magenta "#f5c2e7"
+    orange "#fab387"  // the word color next to Zellij when ctrl+<char> is pressed
+    cyan "#89dceb"
+    black "#181825"   // the color of the bar where tabs are
+    white "#cdd6f4"   // Zellij in bottom left corner color
   }
 }
 
