@@ -80,8 +80,8 @@ super + shift + s
 #################################################################
 
 # browsers
-super + b; {b, g, f}
-     {brave, google-chrome-stable -no-default-browser-check, firefox}
+super + b; {b, g, f, z}
+     {brave, google-chrome-stable -no-default-browser-check, firefox, zen-browser-optimized}
 
 #################################################################
 # CONTROL + ALT KEYS
