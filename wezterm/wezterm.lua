@@ -1,13 +1,23 @@
+-- Pull in the wezterm API
 local wezterm = require("wezterm")
-local config = {}
 
+-- This will hold the configuration.
+local config = wezterm.config_builder()
+
+-- colorschme
 --config.color_scheme = "Catppuccin Mocha" -- or Macchiato, Frappe, Latte
 
+-- font configuration
 config.font_size = 12
+config.font = wezterm.font("Droid Sans Mono")
+
+-- opacity for background and text
 config.window_background_opacity = 0.4
 --config.text_background_opacity = 0.3
-config.font = wezterm.font("Droid Sans Mono")
+
+-- tab bar is hidden if we only have one tab
 config.hide_tab_bar_if_only_one_tab = true
+--config.enable_tab_bar = false
 
 -- override colors
 config.colors = {
@@ -56,4 +66,5 @@ config.window_padding = {
 -- spawn a fish shell in login mode
 config.default_prog = { "/usr/bin/fish", "-l" }
 
+-- and finally, return the configuration to wezterm
 return config
