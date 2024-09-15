@@ -23,14 +23,14 @@ config.colors = {
 	},
 	-- bright colors
 	brights = {
-		"#6b6b6b",
-		"#c55555",
-		"#aac474",
-		"#feca88",
-		"#82b8c8",
-		"#c28cb8",
-		"#93d3c3",
-		"#f8f8f8",
+		"#6b6b6b", -- bright black
+		"#c55555", -- bright red
+		"#aac474", -- bright green
+		"#feca88", -- bright yellow
+		"#82b8c8", -- bright blue
+		"#c28cb8", -- bright magenta
+		"#93d3c3", -- bright cyan
+		"#f8f8f8", -- bright white
 	},
 	-- dim colors
 	indexed = {
@@ -45,11 +45,15 @@ config.colors = {
 	},
 }
 
+-- window padding
 config.window_padding = {
 	left = "0.5cell",
 	right = "0.5cell",
 	top = "0cell",
 	bottom = "0cell",
 }
+
+-- spawn a fish shell in login mode
+config.default_prog = { "/usr/bin/fish", "-l" }
 
 return config
