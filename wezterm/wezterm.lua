@@ -1,5 +1,6 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
+local act = wezterm.action
 
 -- This will hold the configuration.
 local config = wezterm.config_builder()
@@ -65,6 +66,12 @@ config.window_padding = {
 
 -- spawn a fish shell in login mode
 config.default_prog = { "/usr/bin/fish", "-l" }
+
+-- override default key mappings
+config.keys = {
+	{ key = "v", mods = "SHIFT|ALT|CTRL", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "h", mods = "SHIFT|ALT|CTRL", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+}
 
 -- and finally, return the configuration to wezterm
 return config
