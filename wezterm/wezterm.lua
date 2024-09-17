@@ -69,8 +69,8 @@ config.default_prog = { "/usr/bin/fish", "-l" }
 
 -- override default key mappings
 config.keys = {
-	{ key = "v", mods = "SHIFT|ALT|CTRL", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-	{ key = "h", mods = "SHIFT|ALT|CTRL", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	{ key = "h", mods = "SHIFT|ALT|CTRL", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "v", mods = "SHIFT|ALT|CTRL", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 }
 
 -- and finally, return the configuration to wezterm
