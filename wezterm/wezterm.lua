@@ -17,8 +17,8 @@ config.window_background_opacity = 0.4
 --config.text_background_opacity = 0.3
 
 -- tab bar is hidden if we only have one tab
-config.hide_tab_bar_if_only_one_tab = true
---config.enable_tab_bar = false
+--config.hide_tab_bar_if_only_one_tab = true
+config.enable_tab_bar = false
 
 -- override colors
 config.colors = {
@@ -71,8 +71,16 @@ config.default_prog = { "/usr/bin/fish", "-l" }
 -- leader key; lets mimic our tmux config
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
+	-- to me this is horizonal, but wezterm calls it vertical so remap key for my thinking
+	-- https://wezfurlong.org/wezterm/config/lua/keyassignment/SplitVertical.html
 	{ key = "h", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	-- to me this is vertical, but wezterm calls it horizontal so remap key for my thinking
+	-- https://wezfurlong.org/wezterm/config/lua/keyassignment/SplitHorizontal.html
 	{ key = "v", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
+	-- next tab
+	{ key = "n", mods = "LEADER", action = wezterm.action.ActivateTabRelative(1) },
+	-- previous tab
+	{ key = "p", mods = "LEADER", action = wezterm.action.ActivateTabRelative(-1) },
 }
 
 -- and finally, return the configuration to wezterm
