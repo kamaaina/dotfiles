@@ -81,6 +81,8 @@ config.keys = {
 	{ key = "n", mods = "LEADER", action = wezterm.action.ActivateTabRelative(1) },
 	-- previous tab
 	{ key = "p", mods = "LEADER", action = wezterm.action.ActivateTabRelative(-1) },
+	-- go to beginning of line
+	{ key = "a", mods = "LEADER", action = wezterm.action({ SendString = "\x1bOH" }) },
 }
 
 -- and finally, return the configuration to wezterm
