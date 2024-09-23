@@ -16,9 +16,12 @@ config.font = wezterm.font("Droid Sans Mono")
 config.window_background_opacity = 0.4
 --config.text_background_opacity = 0.3
 
--- tab bar is hidden if we only have one tab
---config.hide_tab_bar_if_only_one_tab = true
-config.enable_tab_bar = false
+-- tab bar
+config.enable_tab_bar = true
+config.hide_tab_bar_if_only_one_tab = false
+config.tab_bar_at_bottom = true
+config.use_fancy_tab_bar = false
+config.tab_and_split_indices_are_zero_based = false
 
 -- override colors
 config.colors = {
@@ -69,7 +72,7 @@ config.default_prog = { "/usr/bin/fish", "-l" }
 
 -- override default key mappings
 -- leader key; lets mimic our tmux config
-config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1500 }
 config.keys = {
 	-- to me this is horizonal, but wezterm calls it vertical so remap key for my thinking
 	-- https://wezfurlong.org/wezterm/config/lua/keyassignment/SplitVertical.html
@@ -84,6 +87,39 @@ config.keys = {
 	-- go to beginning of line
 	{ key = "a", mods = "LEADER", action = wezterm.action({ SendString = "\x1bOH" }) },
 }
+
+-- jump to tab by index
+for i = 0, 9 do
+	-- leader + number to activate that tab
+	table.insert(config.keys, {
+		key = tostring(i),
+		mods = "LEADER",
+		action = wezterm.action.ActivateTab(i - 1),
+	})
+end
+
+-- show when leader key is pressed
+wezterm.on("update-right-status", function(window, _)
+	local SOLID_LEFT_ARROW = ""
+	local ARROW_FOREGROUND = { Foreground = { Color = "#11a0f6" } }
+	local prefix = ""
+
+	if window:leader_is_active() then
+		prefix = " " .. utf8.char(0x1f30a) -- kanagawa wave
+		SOLID_LEFT_ARROW = utf8.char(0xe0b2)
+	end
+
+	if window:active_tab():tab_id() ~= 0 then
+		ARROW_FOREGROUND = { Foreground = { Color = "#1e2030" } }
+	end -- arrow color based on if tab is first pane
+
+	window:set_left_status(wezterm.format({
+		{ Background = { Color = "#b7bdf8" } },
+		{ Text = prefix },
+		ARROW_FOREGROUND,
+		{ Text = SOLID_LEFT_ARROW },
+	}))
+end)
 
 -- and finally, return the configuration to wezterm
 return config
