@@ -76,7 +76,7 @@ config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1500 }
 config.keys = {
 	-- to me this is horizonal, but wezterm calls it vertical so remap key for my thinking
 	-- https://wezfurlong.org/wezterm/config/lua/keyassignment/SplitVertical.html
-	{ key = "h", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
+	{ key = "-", mods = "LEADER", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	-- to me this is vertical, but wezterm calls it horizontal so remap key for my thinking
 	-- https://wezfurlong.org/wezterm/config/lua/keyassignment/SplitHorizontal.html
 	{ key = "v", mods = "LEADER", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
@@ -86,6 +86,16 @@ config.keys = {
 	{ key = "p", mods = "LEADER", action = wezterm.action.ActivateTabRelative(-1) },
 	-- go to beginning of line
 	{ key = "a", mods = "LEADER", action = wezterm.action({ SendString = "\x1bOH" }) },
+
+	{ key = "h", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Left" }) },
+	{ key = "j", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
+	{ key = "l", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Right" }) },
+	{ key = "k", mods = "LEADER", action = wezterm.action({ ActivatePaneDirection = "Up" }) },
+
+	{ key = "h", mods = "CTRL|SHIFT|ALT", action = wezterm.action({ AdjustPaneSize = { "Left", 1 } }) },
+	{ key = "j", mods = "CTRL|SHIFT|ALT", action = wezterm.action({ AdjustPaneSize = { "Down", 1 } }) },
+	{ key = "k", mods = "CTRL|SHIFT|ALT", action = wezterm.action({ AdjustPaneSize = { "Up", 1 } }) },
+	{ key = "l", mods = "CTRL|SHIFT|ALT", action = wezterm.action({ AdjustPaneSize = { "Right", 1 } }) },
 }
 
 -- jump to tab by index
