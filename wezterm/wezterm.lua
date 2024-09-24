@@ -9,7 +9,7 @@ local config = wezterm.config_builder()
 --config.color_scheme = "Catppuccin Mocha" -- or Macchiato, Frappe, Latte
 
 -- font configuration
-config.font_size = 12
+config.font_size = 14
 config.font = wezterm.font("Droid Sans Mono")
 
 -- opacity for background and text
