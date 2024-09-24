@@ -57,6 +57,17 @@ config.colors = {
 		[22] = "#4d7770", -- dim cyan
 		[23] = "#8e8e8e", -- dim white
 	},
+
+	tab_bar = {
+		active_tab = {
+			bg_color = "#4169E1",
+			fg_color = "white",
+		},
+		inactive_tab = {
+			bg_color = "#333333",
+			fg_color = "#C0C0C0",
+		},
+	},
 }
 
 -- window padding
