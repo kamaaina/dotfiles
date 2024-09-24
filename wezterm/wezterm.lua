@@ -131,5 +131,23 @@ wezterm.on("update-right-status", function(window, _)
 	}))
 end)
 
+-- startup with 3 tabs
+wezterm.on("gui-startup", function()
+	-- create and name the first tab
+	local tab, pane, window = wezterm.mux.spawn_window({})
+	tab:set_title("devel")
+
+	-- create and name the second tab
+	local tab2, _, _ = window:spawn_tab({})
+	tab2:set_title("compile")
+
+	-- create and name the third tab
+	local tab3, _, _ = window:spawn_tab({})
+	tab3:set_title("home")
+
+	-- FIXME: activate first tab (zero-based index)
+	--window:perform_action(wezterm.action.ActivateTab(1), pane)
+end)
+
 -- and finally, return the configuration to wezterm
 return config
