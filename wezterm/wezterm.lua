@@ -108,6 +108,13 @@ config.keys = {
 	{ key = "k", mods = "CTRL|SHIFT|ALT", action = wezterm.action({ AdjustPaneSize = { "Up", 1 } }) },
 	{ key = "l", mods = "CTRL|SHIFT|ALT", action = wezterm.action({ AdjustPaneSize = { "Right", 1 } }) },
 
+	-- close pane
+	{
+		key = "q",
+		mods = "LEADER",
+		action = wezterm.action.CloseCurrentPane({ confirm = true }),
+	},
+
 	-- rename tab
 	{
 		key = ".",
