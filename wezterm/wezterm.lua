@@ -177,8 +177,7 @@ wezterm.on("gui-startup", function()
 	local tab3, _, _ = window:spawn_tab({})
 	tab3:set_title("home")
 
-	-- FIXME: activate first tab (zero-based index)
-	--window:perform_action(wezterm.action.ActivateTab(1), pane)
+	tab:activate()
 end)
 
 -- and finally, return the configuration to wezterm
