@@ -6,17 +6,25 @@ return {
 			options = {
 				styles = {
 					comments = "italic",
-					--todo = "bold",
 					--keywords = "bold",
 					--types = "italic,bold",
 				},
 			},
+			palettes = {
+				nightfox = {
+					--bg0: top/bottom bar with filename
+					--bg1: main window background
+					--bg2:
+					--bg3: background color of current highlighted line in file
+					--bg4:
+					bg1 = "#0c0c0c",
+				},
+			},
 		})
 
-		vim.cmd([[ colorscheme nightfox ]])
-
-		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+		--vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		--vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+		vim.cmd("colorscheme nightfox")
 	end,
 }
 
@@ -26,9 +34,36 @@ return {
 	name = "catppuccin",
 	priority = 1000,
 	config = function()
-		vim.cmd([[ colorscheme catppuccin ]])
-		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+		require("catppuccin").setup({
+
+			flavour = "mocha", -- Choose your preferred flavor
+			--no_italic = true, -- Disable all italics
+			--term_colors = true,
+			--transparent_background = false,
+			--styles = {
+			--	comments = {},
+			--	conditionals = {},
+			--	loops = {},
+			--	functions = {},
+			--	keywords = {},
+			--	strings = {},
+			--	variables = {},
+			--	numbers = {},
+			--	booleans = {},
+			--	properties = {},
+			--	types = {},
+			--},
+			color_overrides = {
+				mocha = {
+					base = "#000000",
+					mantle = "#000000",
+					crust = "#000000",
+				},
+			},
+		})
+		vim.cmd([[ colorscheme catppuccin-mocha ]])
+		--vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+		--vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 	end,
 }
 --]=====]
