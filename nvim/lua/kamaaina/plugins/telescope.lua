@@ -29,6 +29,19 @@ return {
 						["<C-j>"] = actions.move_selection_next, -- move to next result
 						-- ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 					},
+					n = {
+						-- close buffers with d
+						["d"] = require("telescope.actions").delete_buffer,
+						-- quit with q instead of escape
+						["q"] = require("telescope.actions").close,
+					},
+				},
+			},
+			pickers = {
+				colorscheme = {
+					enable_preview = false,
+					theme = "dropdown",
+					previewer = false,
 				},
 			},
 		})
@@ -43,5 +56,11 @@ return {
 		-- keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
 		keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
 		-- keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+		keymap.set(
+			"n",
+			"<leader>fb",
+			"<cmd>Telescope buffers  sort_mru=true sort_lastused=true initial_mode=normal theme=ivy<cr>",
+			{ desc = "List buffers" }
+		)
 	end,
 }
