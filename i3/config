@@ -225,6 +225,8 @@ for_window [class="Virt-manager" instance="virt-manager"] floating enable
 for_window [class="Archlinux-tweak-tool.py" instance="archlinux-tweak-tool.py"] floating enable
 for_window [class="Google-chrome" instance="crx_ophjlpahpchlmihnnnihgmmeilfjmjjc"] floating enable
 for_window [class="Qalculate-gtk" instance="qalculate-gtk"] floating enable
+for_window [class="Bless" instance="bless"] floating enable
+for_window [class="ghex" instance="ghex"] floating enable
 
 # The Super L key is a keysym, not a modifier, so you can’t bind it directly
 # However, you can bind a command to the Super L key by using the bindsym command in your i3 configuration file
