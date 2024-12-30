@@ -17,7 +17,7 @@ return {
 					--bg2:
 					--bg3: background color of current highlighted line in file
 					--bg4:
-					bg1 = "#0c0c0c",
+					bg1 = "#000000",
 				},
 			},
 		})
