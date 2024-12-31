@@ -13,18 +13,6 @@ shell-integration-features = no-title,no-cursor
 
 command = /usr/bin/fish --login --interactive
 
-# tabs
-keybind = ctrl+t=new_tab
-keybind = ctrl+shift+t=next_tab
-
 # splits
 keybind = ctrl+b>h=new_split:right
 keybind = ctrl+b>v=new_split:down
-keybind = ctrl+b>z=toggle_split_zoom
-#keybind = ctrl+b>i=resize_split:up,25
-
-# split navigation
-keybind = ctrl+right=goto_split:right
-keybind = ctrl+down=goto_split:bottom
-keybind = ctrl+up=goto_split:top
-keybind = ctrl+left=goto_split:left
