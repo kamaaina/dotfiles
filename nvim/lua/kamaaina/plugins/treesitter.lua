@@ -11,6 +11,7 @@ return {
 				"cpp",
 				"dockerfile",
 				"gitignore",
+				"go",
 				"html",
 				"json",
 				"lua",

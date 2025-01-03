@@ -33,6 +33,7 @@ return {
 				"lua_ls",
 				"pyright",
 				"rust_analyzer",
+				"gopls",
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed
@@ -49,5 +50,6 @@ return {
 		})
 
 		lspconfig.lua_ls.setup({})
+		lspconfig.gopls.setup({})
 	end,
 }
