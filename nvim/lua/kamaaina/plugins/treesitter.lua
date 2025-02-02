@@ -18,6 +18,7 @@ return {
 				"json",
 				"lua",
 				"markdown_inline",
+				"org",
 				"python",
 				"regex",
 				"ron",
