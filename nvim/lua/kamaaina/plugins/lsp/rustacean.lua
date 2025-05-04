@@ -6,20 +6,7 @@ return {
 	config = function()
 		vim.g.rustaceanvim = {
 			-- Plugin configuration
-			tools = {
-				inlay_hints = {
-					auto = true,
-					only_current_line = false,
-					show_parameter_hints = true,
-					parameter_hints_prefix = "<------- ",
-					other_hints_prefix = "=======> ",
-					max_len_align = false,
-					max_len_align_padding = 3,
-					right_align = true,
-					right_align_padding = 7,
-					highlight = "Comment",
-				},
-			},
+			tools = {},
 			-- LSP configuration
 			server = {
 				on_attach = function(client, bufnr)
