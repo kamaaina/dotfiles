@@ -13,6 +13,7 @@ alias ll="ls -lg --icons"
 #alias ltr="ls -lg --sort=time"
 alias vim=nvim
 alias lg=lazygit
+alias gl="git log --pretty=format:'%C(yellow)%h %Cred%ad %Creset%s' --date=short"
 #alias cal="ncal -b"
 #alias tg="flatpak run org.telegram.desktop &> /dev/null &; disown"
 #alias office="flatpak run org.onlyoffice.desktopeditors &> /dev/null &; disown"
@@ -26,6 +27,7 @@ abbr gs git status
 abbr gp git pull
 abbr ltr ls -lg --sort=time
 abbr ltrS ls -lg --sort=size
+abbr lock betterlockscreen -l -q
 
 # rust
 #set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths

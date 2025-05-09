@@ -222,6 +222,7 @@ exec --no-startup-id volumeicon
 #WM_CLASS(STRING) = "qalculate-gtk", "Qalculate-gtk"
 #                      instance           class
 for_window [class="TelegramDesktop" instance="telegram-desktop"] floating enable
+for_window [class="Signal" instance="signal"] floating enable
 for_window [class="Virt-manager" instance="virt-manager"] floating enable
 for_window [class="Archlinux-tweak-tool.py" instance="archlinux-tweak-tool.py"] floating enable
 for_window [class="Google-chrome" instance="crx_ophjlpahpchlmihnnnihgmmeilfjmjjc"] floating enable
