@@ -221,7 +221,7 @@ exec --no-startup-id volumeicon
 # run xprop to get the info
 #WM_CLASS(STRING) = "qalculate-gtk", "Qalculate-gtk"
 #                      instance           class
-for_window [class="TelegramDesktop" instance="telegram-desktop"] floating enable
+for_window [class="TelegramDesktop" instance="Telegram"] floating enable
 for_window [class="Signal" instance="signal"] floating enable
 for_window [class="Virt-manager" instance="virt-manager"] floating enable
 for_window [class="Archlinux-tweak-tool.py" instance="archlinux-tweak-tool.py"] floating enable
@@ -230,6 +230,7 @@ for_window [class="Qalculate-gtk" instance="qalculate-gtk"] floating enable
 for_window [class="Bless" instance="bless"] floating enable
 for_window [class="ghex" instance="ghex"] floating enable
 for_window [class="gnome-calculator" instance="gnome-calculator"] floating enable
+for_window [class="kleopatra" instance="kleopatra"] floating enable
 
 # The Super L key is a keysym, not a modifier, so you can’t bind it directly
 # However, you can bind a command to the Super L key by using the bindsym command in your i3 configuration file
