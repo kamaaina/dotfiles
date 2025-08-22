@@ -212,7 +212,7 @@ exec_always --no-startup-id picom --config $HOME/.config/qtile/scripts/picom.con
 exec_always --no-startup-id nitrogen --restore
 
 # for left handed mouse
-exec_always --no-startup-id xmodmap -e "pointer = 3 2 1"
+#exec_always --no-startup-id xmodmap -e "pointer = 3 2 1"
 
 exec --no-startup-id ibus-daemon -drx
 exec --no-startup-id udiskie
@@ -232,6 +232,7 @@ for_window [class="ghex" instance="ghex"] floating enable
 for_window [class="gnome-calculator" instance="gnome-calculator"] floating enable
 for_window [class="kleopatra" instance="kleopatra"] floating enable
 for_window [class="Gpa" instance="gpa"] floating enable
+for_window [class="YubiKey Manager" instance="ykman-gui"] floating enable
 
 # The Super L key is a keysym, not a modifier, so you can’t bind it directly
 # However, you can bind a command to the Super L key by using the bindsym command in your i3 configuration file
