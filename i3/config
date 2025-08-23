@@ -233,6 +233,7 @@ for_window [class="gnome-calculator" instance="gnome-calculator"] floating enabl
 for_window [class="kleopatra" instance="kleopatra"] floating enable
 for_window [class="Gpa" instance="gpa"] floating enable
 for_window [class="YubiKey Manager" instance="ykman-gui"] floating enable
+for_window [class="Com.yubico.yubioath" instance="com.yubico.yubioath"] floating enable
 
 # The Super L key is a keysym, not a modifier, so you can’t bind it directly
 # However, you can bind a command to the Super L key by using the bindsym command in your i3 configuration file
