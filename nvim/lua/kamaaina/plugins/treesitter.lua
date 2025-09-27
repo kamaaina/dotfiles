@@ -29,6 +29,7 @@ return {
 				"vim",
 				"xml",
 				"yaml",
+				"zig",
 			},
 
 			-- install parser synchronoulsy (only applies to 'ensure_installed')

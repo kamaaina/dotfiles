@@ -54,6 +54,7 @@ fish_add_path /usr/local/go/bin
 fish_add_path $HOME/.local/bin
 fish_add_path $HOME/.config/emacs/bin
 fish_add_path $HOME/go/bin
+fish_add_path /opt/zig-x86_64-linux-0.15.1
 
 set -x EDITOR vim
 
