@@ -7,24 +7,27 @@ return {
 	},
 
 	config = function()
-		-- import cmp-nvim-lsp plugin
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-		-- used to enable autocompletion (assign to every lsp server config)
+		-- Global override to apply capabilities to all servers
 		local capabilities = cmp_nvim_lsp.default_capabilities()
-
-		-- import lspconfig plugin
-		local lspconfig = require("lspconfig")
+		vim.lsp.config("*", { capabilities = capabilities })
 
 		local on_attach = function(client, bufnr)
 			local opts = { silent = true }
 			opts.buffer = bufnr
+			-- You can define your on_attach keymaps here if desired.
 		end
 
-		-- configure python server
-		lspconfig["pyright"].setup({
-			capabilities = capabilities,
+		vim.lsp.config.pyright = {
+			cmd = { "pyright-langserver", "--stdio" },
+			filetypes = { "python" },
+			root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile" },
+			settings = {}, -- Add your custom Pyright settings if any
 			on_attach = on_attach,
-		})
+			capabilities = capabilities,
+		}
+
+		vim.lsp.enable("pyright")
 	end,
 }
