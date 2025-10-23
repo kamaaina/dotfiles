@@ -14,8 +14,6 @@ return {
 
 		local mason_tool_installer = require("mason-tool-installer")
 
-		local lspconfig = require("lspconfig")
-
 		-- enable mason and configure icons
 		mason.setup({
 			ui = {
@@ -34,6 +32,7 @@ return {
 				"pyright",
 				"rust_analyzer",
 				"gopls",
+				"zls",
 			},
 			-- auto-install configured servers (with lspconfig)
 			automatic_installation = true, -- not the same as ensure_installed
@@ -48,8 +47,5 @@ return {
 				"pylint", -- python linter
 			},
 		})
-
-		lspconfig.lua_ls.setup({})
-		lspconfig.gopls.setup({})
 	end,
 }

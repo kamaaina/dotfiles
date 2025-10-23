@@ -1,44 +1,58 @@
 return {
-	"neovim/nvim-lspconfig",
-	event = { "BufReadPre", "BufNewFile" },
-	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
-		{ "antosha417/nvim-lsp-file-operations", config = true },
-	},
+       "neovim/nvim-lspconfig",  -- required! Without this, the spec is invalid
 
-	config = function()
-		-- import cmp-nvim-lsp plugin
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
+    -- Remove nvim-lspconfig since we’re not using it
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+        "hrsh7th/cmp-nvim-lsp",
+        { "antosha417/nvim-lsp-file-operations", config = true },
+    },
 
-		-- used to enable autocompletion (assign to every lsp server config)
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+    config = function()
+        local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-		-- import lspconfig plugin
-		local lspconfig = require("lspconfig")
+        -- Enable completion capabilities for nvim-cmp
+        local capabilities = cmp_nvim_lsp.default_capabilities()
 
-		local on_attach = function(client, bufnr)
-			opts.buffer = bufnr
-		end
+        local on_attach = function(client, bufnr)
+            -- set keymaps, etc.
+            vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
+        end
 
-		-- configure lua server (with special settings)
-		lspconfig["lua_ls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = { -- custom settings for lua
-				Lua = {
-					-- make the language server recognize "vim" global
-					diagnostics = {
-						globals = { "vim" },
-					},
-					workspace = {
-						-- make language server aware of runtime files
-						library = {
-							[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-							[vim.fn.stdpath("config") .. "/lua"] = true,
-						},
-					},
-				},
-			},
-		})
-	end,
+        -- Manual setup for the Lua language server
+        local cmd = { "lua-language-server" }  -- ensure this is in your PATH
+        local root_dir = vim.fn.getcwd()       -- simple default, can customize
+
+        local settings = {
+            Lua = {
+                diagnostics = {
+                    globals = { "vim" },
+                },
+                workspace = {
+                    library = {
+                        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                        [vim.fn.stdpath("config") .. "/lua"] = true,
+                    },
+                },
+            },
+        }
+
+        -- Create the LSP client config manually
+        local config = {
+            cmd = cmd,
+            root_dir = root_dir,
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = settings,
+        }
+
+        -- Start or attach the client to the current buffer
+        vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
+            pattern = "*.lua",
+            callback = function(args)
+                vim.lsp.start(config)
+            end,
+        })
+    end,
 }
+
