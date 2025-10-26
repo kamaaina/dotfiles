@@ -216,7 +216,7 @@ exec_always --no-startup-id xmodmap -e "pointer = 3 2 1"
 
 exec --no-startup-id ibus-daemon -drx
 exec --no-startup-id udiskie
-exec --no-startup-id volumeicon
+#exec --no-startup-id volumeicon
 
 # run xprop to get the info
 #WM_CLASS(STRING) = "qalculate-gtk", "Qalculate-gtk"
@@ -234,6 +234,7 @@ for_window [class="kleopatra" instance="kleopatra"] floating enable
 for_window [class="Gpa" instance="gpa"] floating enable
 for_window [class="YubiKey Manager" instance="ykman-gui"] floating enable
 for_window [class="Com.yubico.yubioath" instance="com.yubico.yubioath"] floating enable
+for_window [class="line.exe" instance="line.exe"] floating enable
 
 # The Super L key is a keysym, not a modifier, so you can’t bind it directly
 # However, you can bind a command to the Super L key by using the bindsym command in your i3 configuration file
