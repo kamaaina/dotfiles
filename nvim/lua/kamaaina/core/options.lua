@@ -146,3 +146,14 @@ end
 vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
 	callback = update_winbar,
 })
+
+-- for transparent background
+vim.cmd([[
+  augroup TransparentBackground
+    autocmd!
+    autocmd ColorScheme * highlight Normal guibg=NONE ctermbg=NONE
+    autocmd ColorScheme * highlight NormalFloat guibg=NONE ctermbg=NONE
+    autocmd ColorScheme * highlight FloatBorder guibg=NONE ctermbg=NONE
+    autocmd ColorScheme * highlight Pmenu guibg=NONE ctermbg=NONE
+  augroup END
+]])
