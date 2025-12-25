@@ -26,6 +26,7 @@ return {
 				"ruby",
 				"ssh_config",
 				"toml",
+				"v",
 				"vim",
 				"xml",
 				"yaml",
