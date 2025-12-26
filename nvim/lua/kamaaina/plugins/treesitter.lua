@@ -15,6 +15,7 @@ return {
 				"gitignore",
 				"go",
 				"html",
+				"ini",
 				"jinja",
 				"json",
 				"lua",
