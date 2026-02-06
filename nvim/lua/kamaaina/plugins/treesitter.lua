@@ -18,6 +18,7 @@ return {
 				"ini",
 				"jinja",
 				"json",
+				"just",
 				"lua",
 				"markdown_inline",
 				"python",
