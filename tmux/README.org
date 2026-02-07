@@ -77,6 +77,9 @@ Customization for the tmux status bar
 #    printf "\x1b[38;5;${i}mcolour${i}\n"
 #done
 
+# use mouse
+set -g mouse on
+
 # selected window colors
 setw -g window-status-style bg=colour0,fg=colour34
 
