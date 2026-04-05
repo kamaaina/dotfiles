@@ -1,24 +1,21 @@
 return {
-	"lukas-reineke/indent-blankline.nvim",
-	event = { "BufReadPre", "BufNewFile" },
-
-	-- See `:help ibl.commands`
-
-	-- require('ibl').setup {
-	--    char = '┊',
-	--    show_trailing_blankline_indent = false,
-	-- }
-
-	config = function()
-		local ibl = require("ibl")
-		ibl.setup({
-			enabled = true,
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {
+			indent = { char = "┃" },
 			scope = {
-				enabled = false,
+				enabled = true,
+				show_start = false,
+				show_end = true,
 			},
-			indent = {
-				char = "▏",
+			exclude = {
+				filetypes = { "help", "lazy", "terminal" }, -- ⚠ must be filetypes
 			},
-		})
-	end,
+		},
+		init = function()
+			-- highlight override before plugin loads
+			vim.api.nvim_set_hl(0, "IblScope", { fg = "#7aa2f7" })
+		end,
+	},
 }
