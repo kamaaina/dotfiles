@@ -149,7 +149,7 @@ sidebar_max_width = 0
 # Capture mouse input for Herdr's mouse UI.
 # Set false to let the terminal handle normal clicks, such as Cmd-clicking URLs.
 # Pane apps like lazygit and btop can still receive mouse when they request it.
-# mouse_capture = true
+mouse_capture = false
 
 # Optional modifier that forwards right-click hold/drag gestures to pane apps instead of opening Herdr's pane menu.
 # Empty/off disables this. Shift is intentionally unsupported because terminals commonly reserve Shift+mouse.
@@ -177,7 +177,7 @@ prompt_new_tab_name = false
 pane_gaps = false
 
 # Show detected/reported agent labels in split pane borders when no manual pane name is set.
-show_agent_labels_on_pane_borders = true
+# show_agent_labels_on_pane_borders = false
 
 # Agent panel ordering: "spaces" (grouped by space) or "priority" (attention queue).
 # "workspaces" is accepted as an alias for "spaces".
