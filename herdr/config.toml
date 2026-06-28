@@ -122,6 +122,12 @@ key = "prefix+alt+l"
 type = "pane"
 command = "lazygit"
 
+[[keys.command]]
+key = "prefix+shift+e"
+type = "plugin_action"
+command = "sync-panes"
+description = "synchronize panes"
+
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
 # [keys.indexed]
