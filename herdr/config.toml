@@ -195,6 +195,7 @@ accent = "#89b4fa"
 
 # Background notification popup delivery
 [ui.toast]
+enabled = true
 # off = disable pop-up notifications
 # herdr = show in-app toasts
 # terminal = ask the outer terminal to show a desktop notification
