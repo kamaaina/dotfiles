@@ -14,6 +14,9 @@ shell-integration-features = no-title,no-cursor
 command = /usr/bin/fish --login --interactive
 
 # splits
-keybind = ctrl+b>h=new_split:right
-keybind = ctrl+b>v=new_split:down
+#keybind = ctrl+b>h=new_split:right
+#keybind = ctrl+b>v=new_split:down
 #keybind = ctrl+a>z=toggle_split_zoom
+
+
+keybind = ctrl+m>m=toggle_mouse_reporting
