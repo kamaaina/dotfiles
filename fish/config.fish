@@ -9,7 +9,7 @@ set fish_greeting
 
 #alias ls=lsd
 alias ls=eza
-alias ll="ls -lg --icons"
+alias ll="ls --icons -lg"
 #alias ltr="ls -lg --sort=time"
 alias vim=nvim
 alias lg=lazygit
