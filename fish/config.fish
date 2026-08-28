@@ -1,3 +1,5 @@
+source /usr/share/cachyos-fish-config/cachyos-config.fish
+
 # do not show a message when launching fish
 set fish_greeting
 
