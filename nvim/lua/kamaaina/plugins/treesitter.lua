@@ -2,7 +2,7 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	event = { "BufReadPre", "BufNewFile" },
 	config = function()
-		local treesitter = require("nvim-treesitter.configs").setup({
+		local treesitter = require("nvim-treesitter.config").setup({
 			-- a list of parser names, or "all"
 			ensure_installed = {
 				"bash",
