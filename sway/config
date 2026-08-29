@@ -171,6 +171,7 @@ input * repeat_rate 50
 
 #exec --no-startup-id ibus-daemon -drx
 exec --no-startup-id udiskie
+exec fcitx5 -d
 #exec --no-startup-id volumeicon
 
 for_window [class="Virt-manager" instance="virt-manager"] floating enable

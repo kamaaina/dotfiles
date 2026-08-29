@@ -4,12 +4,6 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 function fish_greeting
 end
 
-# key binding; namely caps lock -> esc
-#xmodmap ~/.Xmodmap
-
-# turn on numlock
-#/usr/bin/numlockx on
-
 alias ls=eza
 alias ll="ls --icons -lg"
 alias vim=nvim
@@ -25,11 +19,6 @@ abbr gp git pull
 abbr ltr ls -lg --sort=time
 abbr ltrS ls -lg --sort=size
 abbr lock betterlockscreen -l -q
-
-# ibus settings for japanese input
-set -x GTK_IM_MODULE 'ibus'
-set -x QT_IM_MODULE 'ibus'
-set -x XMODIFIERS "@im='ibus'"
 
 # dark mode
 set -x GTK_THEME Adwaita:dark
