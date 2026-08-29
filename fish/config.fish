@@ -22,7 +22,7 @@ alias gl="git log --pretty=format:'%C(yellow)%h %Cred%ad %Creset%s' --date=short
 #alias office="flatpak run org.onlyoffice.desktopeditors &> /dev/null &; disown"
 #alias vscode="flatpak run com.visualstudio.code &> /dev/null &; disown"
 #alias yubi="flatpak run com.yubico.yubioath &> /dev/null &; disown"
-alias emacs="emacsclient -c -a 'emacs'"
+alias emacs="emacsclient -c -a 'doom-emacs'"
 #alias r=ranger
 alias cat="bat --paging=never"
 abbr d cd ~/devel
