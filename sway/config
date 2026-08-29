@@ -169,21 +169,20 @@ input * repeat_rate 50
 # for left handed mouse
 #exec_always --no-startup-id xmodmap -e "pointer = 3 2 1"
 
-#exec --no-startup-id ibus-daemon -drx
 exec --no-startup-id udiskie
 exec fcitx5 -d
 #exec --no-startup-id volumeicon
 
-for_window [class="Virt-manager" instance="virt-manager"] floating enable
-for_window [class="Qalculate-gtk" instance="qalculate-gtk"] floating enable
-for_window [class="Bless" instance="bless"] floating enable
-for_window [class="ghex" instance="ghex"] floating enable
-for_window [class="gnome-calculator" instance="gnome-calculator"] floating enable
-for_window [class="kleopatra" instance="kleopatra"] floating enable
-for_window [class="Gpa" instance="gpa"] floating enable
-for_window [class="YubiKey Manager" instance="ykman-gui"] floating enable
-for_window [class="Com.yubico.yubioath" instance="com.yubico.yubioath"] floating enable
-for_window [instance="^chrome-ophjlpahpchlmihnnnihgmmeilfjmjjc-Default$"] floating enable
+#for_window [class="Virt-manager" instance="virt-manager"] floating enable
+#for_window [class="Qalculate-gtk" instance="qalculate-gtk"] floating enable
+#for_window [class="Bless" instance="bless"] floating enable
+#for_window [class="ghex" instance="ghex"] floating enable
+#for_window [class="gnome-calculator" instance="gnome-calculator"] floating enable
+#for_window [class="Gpa" instance="gpa"] floating enable
+#for_window [class="YubiKey Manager" instance="ykman-gui"] floating enable
+for_window [app_id="kleopatra"] floating enable
+for_window [app_id="com.yubico.yubioath"] floating enable
+for_window [app_id="chrome-ophjlpahpchlmihnnnihgmmeilfjmjjc-Default"] floating enable
 for_window [app_id="ghostty"] opacity 0.85
 
 exec --no-startup-id doom-emacs --daemon
