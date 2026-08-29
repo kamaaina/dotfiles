@@ -223,6 +223,11 @@ set -g @catppuccin_date_time "%Y-%m-%d %H:%M:%S"
 #+end_src
 
 ** tpm
+Install with this command
+#+begin_example
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+#+end_example
+
 Per tpm docs, this should go a the bottom of config
 
 Other plugins can be installed like this:
