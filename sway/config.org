@@ -1,0 +1,394 @@
+#+TITLE: sway config
+#+AUTHOR: mike
+#+PROPERTY: header-args :tangle ./config2
+# manual tangle by: C-c C-v t
+# autotangle needs this plugin to work: https://github.com/yilkalargaw/org-auto-tangle
+#+auto_tangle: t
+#+STARTUP: showeverything
+
+*   Table Of Contents :toc:
+- [[#about-sway][About Sway]]
+- [[#configuration][Configuration]]
+  - [[#volume][Volume]]
+  - [[#floating-windows][Floating Windows]]
+  - [[#navigation][Navigation]]
+  - [[#window-splits][Window Splits]]
+  - [[#workspace-navigation][Workspace Navigation]]
+  - [[#misc-shortcuts-and-key-bindings][Misc Shortcuts and Key Bindings]]
+  - [[#copy-on-highlight][Copy on Highlight]]
+  - [[#keychords][Keychords]]
+  - [[#floating-windows-1][Floating Windows]]
+  - [[#screensaver-and-screenlock][Screensaver and Screenlock]]
+  - [[#status-bar][Status Bar]]
+  - [[#load-system-sway-configs][Load System Sway Configs]]
+
+* About Sway
+A tiling window manager for the Wayland compositor. Using this on cachyos
+
+
+* Configuration
+Symlink configuration here ~/.config/sway/config
+
+~Note: Super key is the _mod_ key~
+
+#+begin_src conf
+# sway config file
+
+# set mod key to super (aka windows)
+set $mod Mod4
+
+# Font for window titles and used by the bar unless a different font
+# is used in the bar {} block below
+font pango:Meslo LGM Nerd Font 12
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# exit sway
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+# remove the top title bar
+default_border pixel 1
+default_floating_border pixel 0
+
+# set key repition frequency
+input * repeat_delay 400
+input * repeat_rate 50
+
+# swap buttons for left handed mouse
+#exec_always --no-startup-id xmodmap -e "pointer = 3 2 1"
+#+end_src
+
+This will automount a usb drive that gets plugged in and it will show up in thunar
+
+#+begin_src conf
+exec --no-startup-id udiskie
+#+end_src
+
+This is for Japanese support
+
+sudo pacman -S fcitx5 fcitx5-mozc fcitx5-configtool fcitx5-gtk fcitx5-qt
+
+sudo vim /etc/environment
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+DEFAULT_IM_MODULE=fcitx
+
+
+fcitx5-configtool
+
+In the Current Input Method panel, you will see your default keyboard layout (e.g., Keyboard - English (US)).
+Under the Available Input Method panel on the right, uncheck "Only Show Current Language".
+Search for Mozc, select it, and click the <- arrow button to move it into your active input methods list.
+Click Apply and close the window.
+
+By default, you can toggle between your English keyboard and Japanese typing by pressing Ctrl + Space.
+When Mozc is active, type phonetically in Romaji (e.g., typing arigatou will convert to ありがとう). Press the Spacebar to cycle through Kanji options, and press Enter to confirm your selection.
+
+#+begin_src conf
+exec fcitx5 -d
+#exec --no-startup-id volumeicon
+#+end_src
+
+** Volume
+
+To adjust volume
+
+#+begin_src conf
+
+# Use pactl to adjust volume in PulseAudio.
+bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+#+end_src
+
+** Floating Windows
+
+To move and resize floating windows
+
+#+begin_src conf
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
+#+end_src
+
+** Navigation
+
+Binding to navigate
+
+#+begin_src conf
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+#+end_src
+
+** Window Splits
+
+#+begin_src conf
+# split in horizontal orientation
+#bindsym $mod+h split h
+bindsym $mod+Shift+v split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+#+end_src
+
+** Workspace Navigation
+
+#+begin_src conf
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+#+end_src
+
+** Misc Shortcuts and Key Bindings
+
+No need for swhkd as we can configure keychords here in sway
+
+#+begin_src conf
+# start a terminal
+bindsym $mod+Return exec ghostty
+
+# kill focused window
+bindsym $mod+q kill
+
+# application launcher
+set $menu wmenu-run
+bindsym $mod+d exec $menu
+
+# a more modern dmenu replacement is rofi:
+bindsym Mod1+r exec rofi -show drun
+
+# start emacs server
+exec --no-startup-id doom-emacs --daemon
+
+# for screenshots
+exec --no-startup-id /usr/bin/flameshot
+
+#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# scratchpad move/show
+#bindsym $mod+Shift+minus move scratchpad
+#bindsym $mod+minus scratchpad show
+
+bindsym $mod+Shift+minus [title="LINE"] move scratchpad
+bindsym $mod+minus [title="LINE"] scratchpad show
+bindsym $mod+Shift+Return thunar
+
+# set a desktop wallpaper
+#exec --no-startup-id swaybg -i ~/Downloads/5079065.jpg
+#+end_src
+
+** Copy on Highlight
+
+Want the ability to highlight text and that be available in the copy buffer so we can easily paste it somewhere
+
+Might need to run this once to set things up:
+#+begin_example
+gsettings set org.gnome.desktop.interface gtk-enable-primary-paste true
+#+end_example
+
+#+begin_src conf
+# for copy on highlight; note: need clipman installed
+# sync regular ctrl+c to clipboard manager
+exec wl-paste --type text --watch clipman store --no-persist
+# sync highlighted selection to clipboard manager
+exec wl-paste --primary --type text --watch clipman store --histpath="~/.local/share/clipman-primary.json"
+#+end_src
+
+** Keychords
+
+Triggering this and it will let you execute commands after 
+
+*** Launching a Browser
+
+#+begin_src conf
+# Enter "browser" prefix mode
+bindsym $mod+b mode "browser"
+
+mode "browser" {
+    bindsym b exec brave; mode "default"
+    bindsym f exec firefox; mode "default"
+    bindsym g exec google-chrome-stable; mode "default"
+
+    # escape out of the mode without triggering anything
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+#+end_src
+
+*** Resizing Windows
+
+
+#+begin_src conf
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+#+end_src
+
+** Floating Windows
+
+These apps will be launched and kept in a floating window
+
+#+begin_src conf
+for_window [app_id="virt-manager"] floating enable
+for_window [app_id="com.cisco.secureclient.gui"] floating enable
+#for_window [class="Qalculate-gtk" instance="qalculate-gtk"] floating enable
+#for_window [class="Bless" instance="bless"] floating enable
+#for_window [class="ghex" instance="ghex"] floating enable
+#for_window [class="gnome-calculator" instance="gnome-calculator"] floating enable
+#for_window [class="Gpa" instance="gpa"] floating enable
+#for_window [class="YubiKey Manager" instance="ykman-gui"] floating enable
+for_window [app_id="kleopatra"] floating enable
+for_window [app_id="com.yubico.yubioath"] floating enable
+for_window [app_id="chrome-ophjlpahpchlmihnnnihgmmeilfjmjjc-Default"] floating enable
+
+# opacity for ghostty
+for_window [app_id="ghostty"] opacity 0.85
+#+end_src
+
+** Screensaver and Screenlock
+
+#+begin_src conf
+exec swayidle -w \
+    timeout 300 'swaylock -c 000000' \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock -c 000000'
+#+end_src
+
+** Status Bar
+
+#+begin_src conf
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    position top
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    status_command while echo "$(uname -r) \| $(date +'%Y-%m-%d %X')"; do sleep 1; done
+
+    colors {
+        statusline #ffffff
+        background #323232
+        inactive_workspace #32323200 #32323200 #5c5c5c
+        focused_workspace #c5d7b4 #c5d7b4 #111111
+    }
+}
+
+include /etc/sway/config.d/*
+#+end_src
+
+** Load System Sway Configs
+
+#+begin_src conf
+include /etc/sway/config.d/*
+#+end_src
