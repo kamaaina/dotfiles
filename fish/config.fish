@@ -18,7 +18,7 @@ abbr gs git status
 abbr gp git pull
 abbr ltr ls -lg --sort=time
 abbr ltrS ls -lg --sort=size
-abbr lock betterlockscreen -l -q
+abbr lock swaylock -c 000000
 
 # dark mode
 set -x GTK_THEME Adwaita:dark
