@@ -1,6 +1,6 @@
 #+TITLE: sway config
 #+AUTHOR: mike
-#+PROPERTY: header-args :tangle ./config2
+#+PROPERTY: header-args :tangle ./config
 # manual tangle by: C-c C-v t
 # autotangle needs this plugin to work: https://github.com/yilkalargaw/org-auto-tangle
 #+auto_tangle: t
@@ -60,7 +60,7 @@ input * repeat_delay 400
 input * repeat_rate 50
 
 # swap buttons for left handed mouse
-#exec_always --no-startup-id xmodmap -e "pointer = 3 2 1"
+input type:pointer left_handed enabled
 #+end_src
 
 This will automount a usb drive that gets plugged in and it will show up in thunar
@@ -259,6 +259,9 @@ bindsym $mod+Shift+Return thunar
 
 # set a desktop wallpaper
 #exec --no-startup-id swaybg -i ~/Downloads/5079065.jpg
+
+# sway notification center
+exec swaync
 #+end_src
 
 ** Copy on Highlight
@@ -346,6 +349,7 @@ for_window [app_id="com.cisco.secureclient.gui"] floating enable
 #for_window [class="YubiKey Manager" instance="ykman-gui"] floating enable
 for_window [app_id="kleopatra"] floating enable
 for_window [app_id="com.yubico.yubioath"] floating enable
+for_window [app_id="authenticator"] floating enable
 for_window [app_id="chrome-ophjlpahpchlmihnnnihgmmeilfjmjjc-Default"] floating enable
 
 # opacity for ghostty
