@@ -260,7 +260,7 @@ exec --no-startup-id /usr/bin/flameshot
 
 bindsym $mod+Shift+minus [title="LINE"] move scratchpad
 bindsym $mod+minus [title="LINE"] scratchpad show
-bindsym $mod+Shift+Return thunar
+bindsym $mod+Shift+Return exec thunar
 
 # set a desktop wallpaper
 #exec --no-startup-id swaybg -i ~/Downloads/5079065.jpg
