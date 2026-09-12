@@ -29,7 +29,7 @@ set -x TMP /tmp
 # path
 fish_add_path $HOME/.config/emacs/bin
 fish_add_path $HOME/go/bin
-fish_add_path /opt/zig-x86_64-linux-0.16.0
+fish_add_path /opt/zig-x86_64-linux-0.17.0
 
 set -x EDITOR vim
 
