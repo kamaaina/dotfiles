@@ -247,8 +247,8 @@ bindsym $mod+d exec $menu
 # a more modern dmenu replacement is rofi:
 bindsym Mod1+r exec rofi -show drun
 
-# start emacs server
-exec --no-startup-id doom-emacs --daemon
+# start emacs server, but use fish to do it as environment is setup there
+exec --no-startup-id fish -c "doom-emacs --daemon"
 
 # for screenshots
 exec --no-startup-id /usr/bin/flameshot
