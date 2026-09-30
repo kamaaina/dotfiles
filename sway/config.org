@@ -26,6 +26,7 @@
   - [[#assign-the-physical-interface-eno1-to-the-bridge][Assign the physical interface (eno1) to the bridge]]
   - [[#turn-off-your-original-standalone-configuration-for-eno1-replace-eno1-profile-name-with-your-actual-connection-name-which-you-can-find-by-running-nmcli-con-show][Turn off your original standalone configuration for eno1 (replace eno1-profile-name with your actual connection name, which you can find by running nmcli con show):]]
   - [[#bring-up-the-bridge][Bring up the bridge]]
+- [[#login-manager][Login Manager]]
 
 * About Sway
 A tiling window manager for the Wayland compositor. Using this on cachyos
@@ -433,3 +434,33 @@ sudo nmcli connection up br0
 #+end_example
 
 When creating a VM, use bridge networking and br0 for the interface
+
+* Login Manager
+
+Change to greetd
+
+#+begin_example bash
+sudo pacman -S greetd greetd-tuigreet
+sudo vim /etc/greetd/config.toml
+#+end_example
+
+Add the following
+
+#+begin_example bash
+[default_session]
+command = "tuigreet --time --remember --sessions /usr/share/wayland-sessions"
+user = "greeter"
+#+end_example
+
+--time: Displays a clock at the top
+--remember: Remembers your last successfully logged-in username
+--sessions: Automatically reads /usr/share/wayland-sessions so you can cleanly select Sway from a list
+
+#+begin_example bash
+# disable ly
+sudo systemctl disable ly@tty2.service
+
+# enable greetd
+sudo systemctl enable greetd.service
+sudo reboot
+#+end_example
