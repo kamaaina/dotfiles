@@ -14,6 +14,7 @@ alias gl="git log --pretty=format:'%C(yellow)%h %Cred%ad %Creset%s' --date=short
 alias emacs="emacsclient -c -a 'doom-emacs'"
 alias cat="bat --paging=never"
 abbr d cd ~/devel
+abbr df cd ~/dotfiles
 abbr gs git status
 abbr gp git pull
 abbr ltr ls -lg --sort=time
