@@ -255,6 +255,8 @@ exec --no-startup-id /usr/bin/flameshot
 
 #exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
+exec blueman-applet
+
 # scratchpad move/show
 #bindsym $mod+Shift+minus move scratchpad
 #bindsym $mod+minus scratchpad show
@@ -358,6 +360,7 @@ for_window [app_id="com.yubico.yubioath"] floating enable
 for_window [app_id="authenticator"] floating enable
 for_window [app_id="chrome-ophjlpahpchlmihnnnihgmmeilfjmjjc-Default"] floating enable
 for_window [app_id="org.kde.isoimagewriter"] floating enable
+for_window [app_id="blueman-manager"] floating enable
 
 # opacity for ghostty
 for_window [app_id="ghostty"] opacity 0.85
