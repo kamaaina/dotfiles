@@ -287,6 +287,8 @@ gsettings set org.gnome.desktop.interface gtk-enable-primary-paste true
 exec wl-paste --type text --watch clipman store --no-persist
 # sync highlighted selection to clipboard manager
 exec wl-paste --primary --type text --watch clipman store --histpath="~/.local/share/clipman-primary.json"
+# sync your standard clipboard to your primary clipboard
+exec wl-paste --type text --watch wl-copy --primary
 #+end_src
 
 ** Keychords
