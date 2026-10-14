@@ -19,4 +19,14 @@ command = /usr/bin/fish --login --interactive
 #keybind = ctrl+a>z=toggle_split_zoom
 
 
-keybind = ctrl+m>m=toggle_mouse_reporting
+#keybind = ctrl+m>m=toggle_mouse_reporting
+
+# Forces auto-copied selections to sync with both clipboards
+copy-on-select = clipboard
+
+# Allow internal terminal applications to write to your system clipboard
+clipboard-write = allow
+
+# -----------------------
+
+mouse-reporting = false

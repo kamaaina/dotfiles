@@ -33,6 +33,7 @@ fish_add_path $HOME/go/bin
 fish_add_path /opt/zig-x86_64-linux-0.17.0
 
 set -x EDITOR vim
+set -x PICO_SDK_PATH ~/Downloads/pico-sdk
 
 # colors
 set -x LS_COLORS 'di=0;94:ex=0;92:ln=36:ow=0;30;42'
